@@ -126,6 +126,17 @@ Before adding a resource, please:
 - Add comments for complex logic
 - Keep components focused and reusable
 
+### Styling Guidelines
+- **Use SCSS/Sass** for all styles
+- **Follow BEM naming convention** (Block__Element--Modifier)
+  - Example: `.food-resources__card`, `.home__cta-button`
+- **Use the global variables** defined in `src/styles/global.scss`
+  - Colors: `$primary-color`, `$text-secondary`, etc.
+  - Breakpoints: `$breakpoint-md`, `$breakpoint-lg`, etc.
+- **Create component-specific SCSS files** (e.g., `ComponentName.scss`)
+- **Import styles at the top of each component**
+  - Example: `import '../styles/Home.scss';`
+
 ### Project Structure
 ```
 food-search-2025/
@@ -135,9 +146,12 @@ food-search-2025/
 │   │   └── FoodResources.jsx
 │   ├── data/           # JSON data files
 │   │   └── foodResources.json
+│   ├── styles/         # SCSS stylesheets
+│   │   ├── global.scss # Global variables and styles
+│   │   ├── Home.scss   # Home component styles
+│   │   └── FoodResources.scss # FoodResources styles
 │   ├── App.jsx         # Main app component
-│   ├── main.jsx        # Entry point
-│   └── index.css       # Global styles
+│   └── main.jsx        # Entry point
 ├── public/             # Static assets
 ├── CONTRIBUTING.md     # This file
 └── README.md          # Project documentation

@@ -1,0 +1,169 @@
+@use './global.scss' as *;
+
+.home {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #f0fdf4, #dbeafe);
+
+  &__container {
+    max-width: 56rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #166534;
+    margin-bottom: 1rem;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 3rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.25rem;
+    color: $text-secondary;
+  }
+
+  &__content {
+    background-color: $bg-primary;
+    border-radius: 0.5rem;
+    box-shadow: $shadow-lg;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+
+    @media (min-width: $breakpoint-md) {
+      padding: 2rem;
+    }
+  }
+
+  &__section {
+    margin-bottom: 2rem;
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $text-primary;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: $text-secondary;
+      line-height: 1.625;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ol {
+      padding-left: 1.5rem;
+      color: $text-secondary;
+
+      li {
+        margin-bottom: 0.75rem;
+      }
+    }
+  }
+
+  &__feature-list {
+    li {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+    }
+  }
+
+  &__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: $primary-color;
+    flex-shrink: 0;
+    margin-right: 0.75rem;
+    margin-top: 0.25rem;
+  }
+
+  &__feature-text {
+    color: $text-secondary;
+
+    strong {
+      color: $text-primary;
+    }
+  }
+
+  &__cta {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  &__cta-button {
+    display: inline-block;
+    background-color: $primary-color;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    box-shadow: $shadow-md;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: $primary-hover;
+    }
+  }
+
+  &__footer {
+    background-color: $bg-blue-light;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    text-align: center;
+
+    h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: $text-primary;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: $text-secondary;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: $secondary-color;
+      font-weight: 500;
+      text-decoration: underline;
+
+      &:hover {
+        color: $secondary-hover;
+      }
+    }
+  }
+
+  &__emergency {
+    margin-top: 2rem;
+    background-color: $bg-yellow-light;
+    border-left: 4px solid $border-yellow;
+    padding: 1rem;
+    border-radius: 0.25rem;
+
+    p {
+      font-size: 0.875rem;
+      color: $text-secondary;
+      margin: 0;
+
+      strong {
+        color: $text-primary;
+      }
+    }
+  }
+}

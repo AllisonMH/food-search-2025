@@ -1,0 +1,79 @@
+// Global Variables
+$primary-color: #16a34a;
+$primary-hover: #15803d;
+$secondary-color: #3b82f6;
+$secondary-hover: #2563eb;
+$text-primary: #1f2937;
+$text-secondary: #4b5563;
+$text-light: #6b7280;
+$bg-primary: #ffffff;
+$bg-secondary: #f9fafb;
+$bg-accent: #f0fdf4;
+$bg-blue-light: #eff6ff;
+$bg-yellow-light: #fefce8;
+$border-color: #d1d5db;
+$border-yellow: #facc15;
+$shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+$shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+$shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// Global Styles
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: $text-primary;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Utility Classes
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @media (min-width: $breakpoint-lg) {
+    max-width: 80rem;
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+
+  &-primary {
+    background-color: $primary-color;
+    color: white;
+    box-shadow: $shadow-md;
+
+    &:hover {
+      background-color: $primary-hover;
+    }
+  }
+
+  &-secondary {
+    color: $secondary-color;
+
+    &:hover {
+      color: $secondary-hover;
+    }
+  }
+}

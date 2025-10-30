@@ -46,14 +46,14 @@ npm run dev
 ### Core Technologies
 - **React** - UI library for building interactive interfaces
 - **Vite** - Next-generation frontend build tool
-- **Tailwind CSS** - Utility-first CSS framework
+- **SCSS/Sass** - CSS preprocessor for maintainable stylesheets
 - **React Router** - Client-side routing
 
 ### Why These Technologies?
 
 **React + Vite**: Provides a fast, modern development experience with instant hot module replacement and optimized production builds.
 
-**Tailwind CSS**: Enables rapid UI development with responsive design utilities, making it easy to create a mobile-first interface.
+**SCSS/Sass**: Enables maintainable, modular CSS with variables, nesting, mixins, and functions. The BEM (Block Element Modifier) naming convention makes styles easy to understand and modify.
 
 **React Router**: Enables seamless navigation without page reloads, creating a smooth single-page application experience.
 
@@ -67,15 +67,17 @@ food-search-2025/
 │   │   └── FoodResources.jsx # Searchable resource directory
 │   ├── data/                # Data files
 │   │   └── foodResources.json # Food resource database
+│   ├── styles/              # SCSS stylesheets
+│   │   ├── global.scss      # Global styles and variables
+│   │   ├── Home.scss        # Home component styles
+│   │   └── FoodResources.scss # FoodResources component styles
 │   ├── App.jsx              # Main application component
-│   ├── main.jsx             # Application entry point
-│   └── index.css            # Global styles and Tailwind imports
+│   └── main.jsx             # Application entry point
 ├── public/                  # Static assets
 ├── .github/                 # GitHub configuration
 ├── CONTRIBUTING.md          # Contribution guidelines
 ├── package.json             # Dependencies and scripts
 ├── vite.config.js          # Vite configuration
-├── tailwind.config.js      # Tailwind configuration
 └── README.md               # This file
 ```
 
@@ -108,7 +110,7 @@ App (Router)
 2. **Data Loading**: Imported directly into components (no backend required)
 3. **Filtering**: Client-side filtering using React state and useMemo
 4. **Rendering**: Dynamic rendering based on filter state
-5. **Responsive Design**: Tailwind CSS handles all responsive layouts
+5. **Responsive Design**: SCSS with media queries handles all responsive layouts
 
 ### Key Design Decisions
 
@@ -271,7 +273,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Built with open-source technologies:
   - React
   - Vite
-  - Tailwind CSS
+  - SCSS/Sass
   - React Router
 
 ## 📞 Support & Contact
