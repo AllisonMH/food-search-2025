@@ -2,7 +2,7 @@
 
 .home {
   min-height: 100vh;
-  background: linear-gradient(to bottom right, #f0fdf4, #dbeafe);
+  background: linear-gradient(to bottom right, $bg-light-purple, $bg-accent);
 
   &__container {
     max-width: 56rem;
@@ -18,7 +18,7 @@
   &__title {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #166534;
+    color: $primary-color;
     margin-bottom: 1rem;
 
     @media (min-width: $breakpoint-md) {
@@ -121,7 +121,7 @@
   }
 
   &__footer {
-    background-color: $bg-blue-light;
+    background-color: $bg-accent;
     border-radius: 0.5rem;
     padding: 1.5rem;
     text-align: center;
@@ -151,8 +151,8 @@
 
   &__emergency {
     margin-top: 2rem;
-    background-color: $bg-yellow-light;
-    border-left: 4px solid $border-yellow;
+    background-color: $bg-warning;
+    border-left: 4px solid $border-warning;
     padding: 1rem;
     border-radius: 0.25rem;
 

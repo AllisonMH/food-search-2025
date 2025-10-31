@@ -1,21 +1,35 @@
-// Global Variables
-$primary-color: #16a34a;
-$primary-hover: #15803d;
-$secondary-color: #3b82f6;
-$secondary-hover: #2563eb;
+// Kolor Kode Studios Brand Colors
+$brand-primary: #400B6E;        // Dark purple - primary brand color
+$brand-secondary: #9F7BED;      // Medium purple - secondary/hover
+$brand-light: #DDBBFF;          // Light lavender - light accents
+$brand-accent: #DEC5EB;         // Soft purple - backgrounds
+
+// Color Variables
+$primary-color: $brand-primary;
+$primary-hover: darken($brand-primary, 5%);
+$secondary-color: $brand-secondary;
+$secondary-hover: darken($brand-secondary, 8%);
 $text-primary: #1f2937;
 $text-secondary: #4b5563;
 $text-light: #6b7280;
+$text-on-primary: #ffffff;
 $bg-primary: #ffffff;
 $bg-secondary: #f9fafb;
-$bg-accent: #f0fdf4;
-$bg-blue-light: #eff6ff;
-$bg-yellow-light: #fefce8;
-$border-color: #d1d5db;
-$border-yellow: #facc15;
+$bg-accent: lighten($brand-accent, 8%);
+$bg-light-purple: lighten($brand-light, 8%);
+$bg-info: #eff6ff;
+$bg-warning: #fefce8;
+$border-color: $brand-accent;
+$border-primary: $brand-primary;
+$border-warning: #facc15;
 $shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 $shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 $shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+$shadow-purple: 0 4px 6px -1px rgba($brand-primary, 0.2), 0 2px 4px -2px rgba($brand-primary, 0.1);
+
+// Service Tag Colors (purple-themed)
+$tag-bg: lighten($brand-light, 10%);
+$tag-text: darken($brand-primary, 5%);
 
 // Breakpoints
 $breakpoint-sm: 640px;
@@ -61,11 +75,13 @@ body {
 
   &-primary {
     background-color: $primary-color;
-    color: white;
-    box-shadow: $shadow-md;
+    color: $text-on-primary;
+    box-shadow: $shadow-purple;
 
     &:hover {
       background-color: $primary-hover;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 8px -1px rgba($brand-primary, 0.3), 0 4px 6px -2px rgba($brand-primary, 0.2);
     }
   }
 
