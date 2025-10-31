@@ -147,6 +147,14 @@
         color: $secondary-hover;
       }
     }
+
+    &-credit {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba($brand-primary, 0.1);
+      font-size: 0.875rem;
+      color: $text-secondary;
+    }
   }
 
   &__emergency {

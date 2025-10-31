@@ -100,6 +100,9 @@ export default function Home() {
           >
             Contribute on GitHub
           </a>
+          <p className="home__footer-credit">
+            Created with 💜 by Kolor Koded Studios. Find us at kolorkodedstudios.com
+          </p>
         </div>
 
         {/* Emergency Notice */}
