@@ -14,7 +14,7 @@ Access to food should never be a challenge. This app makes it easy for anyone in
 
 - 📱 **Mobile-First Design** - Optimized for phones and tablets
 - 🔍 **Smart Filtering** - Search by zip code, county, or address
-- 📍 **Comprehensive Directory** - 25+ food resources across metro Atlanta
+- 📍 **Comprehensive Directory** - 38 food resources across metro Atlanta including Clayton County
 - 🏷️ **Service Tags** - Quickly identify food pantries, free meals, mobile pantries, and more
 - ⚡ **Fast & Lightweight** - Built with modern web technologies
 - 🌐 **No Installation Required** - Access directly from your web browser
