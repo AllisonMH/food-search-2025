@@ -2,7 +2,7 @@
 
 .food-resources {
   min-height: 100vh;
-  background-color: #f9fafb;
+  background-color: $bg-light-purple;
 
   &__container {
     max-width: 90rem;
@@ -103,12 +103,12 @@
       &:focus {
         outline: none;
         border-color: $primary-color;
-        box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+        box-shadow: 0 0 0 3px rgba($brand-primary, 0.1);
       }
     }
 
     input::placeholder {
-      color: #9ca3af;
+      color: $text-light;
     }
   }
 
@@ -269,8 +269,8 @@
   }
 
   &__service-tag {
-    background-color: #dcfce7;
-    color: #166534;
+    background-color: $tag-bg;
+    color: $tag-text;
     font-size: 0.75rem;
     font-weight: 500;
     padding: 0.25rem 0.625rem;
@@ -279,7 +279,7 @@
 
   &__help-text {
     margin-top: 2rem;
-    background-color: $bg-blue-light;
+    background-color: $bg-accent;
     border-radius: 0.5rem;
     padding: 1rem;
     text-align: center;
