@@ -76,12 +76,18 @@ export default function Home() {
               <li>Filter by your zip code, county, or search by address</li>
               <li>View organization details including location, hours, and contact info</li>
               <li>Click the website link to learn more or call ahead to confirm hours</li>
+              <li>Click "View Ongoing Food Drives" to view food drives happening every month.</li>
             </ol>
           </section>
 
           <div className="home__cta">
             <Link to="/resources" className="home__cta-button">
               Find Food Resources
+            </Link>
+          </div>
+          <div className="home__cta">
+            <Link to="/drives" className="home__cta-button">
+              View Ongoing Food Drives
             </Link>
           </div>
         </div>
