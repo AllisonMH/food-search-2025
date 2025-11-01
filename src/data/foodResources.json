@@ -7,10 +7,16 @@
     "state": "GA",
     "zipCode": "30318",
     "county": "Fulton",
+    "latitude": 33.7629,
+    "longitude": -84.4283,
     "phone": "(404) 892-9822",
     "website": "https://www.acfb.org",
     "description": "Provides food assistance through a network of partner agencies. Main distribution center and resources.",
-    "services": ["Food Pantry", "Mobile Pantry", "Partner Network"],
+    "services": [
+      "Food Pantry",
+      "Mobile Pantry",
+      "Partner Network"
+    ],
     "hours": "Monday-Friday: 8:00 AM - 5:00 PM"
   },
   {
@@ -24,8 +30,14 @@
     "phone": "(404) 588-9622",
     "website": "https://www.ymcaatlanta.org/hunger-relief",
     "description": "Multiple locations offering free meals and food pantry services.",
-    "services": ["Free Meals", "Food Pantry", "Youth Programs"],
-    "hours": "Varies by location"
+    "services": [
+      "Free Meals",
+      "Food Pantry",
+      "Youth Programs"
+    ],
+    "hours": "Varies by location",
+    "latitude": 33.7548,
+    "longitude": -84.3856
   },
   {
     "id": 3,
@@ -38,8 +50,13 @@
     "phone": "(404) 370-8450",
     "website": "https://www.dekalbcountyga.gov/libraries",
     "description": "Food pantry services available at select DeKalb library branches.",
-    "services": ["Food Pantry", "Community Resources"],
-    "hours": "Monday-Saturday: 10:00 AM - 6:00 PM"
+    "services": [
+      "Food Pantry",
+      "Community Resources"
+    ],
+    "hours": "Monday-Saturday: 10:00 AM - 6:00 PM",
+    "latitude": 33.774,
+    "longitude": -84.294
   },
   {
     "id": 4,
@@ -49,10 +66,16 @@
     "state": "GA",
     "zipCode": "30303",
     "county": "Fulton",
+    "latitude": 33.749,
+    "longitude": -84.388,
     "phone": "(404) 555-0100",
     "website": "https://www.thegroceryspot.org",
     "description": "Mobile food pantry serving multiple Atlanta neighborhoods.",
-    "services": ["Mobile Pantry", "Fresh Produce", "Grocery Delivery"],
+    "services": [
+      "Mobile Pantry",
+      "Fresh Produce",
+      "Grocery Delivery"
+    ],
     "hours": "Check website for mobile schedule"
   },
   {
@@ -66,8 +89,14 @@
     "phone": "(770) 429-1277",
     "website": "https://www.mustministries.org",
     "description": "Provides food, shelter, and supportive services to families in crisis.",
-    "services": ["Food Pantry", "Emergency Assistance", "Case Management"],
-    "hours": "Monday-Friday: 9:00 AM - 5:00 PM"
+    "services": [
+      "Food Pantry",
+      "Emergency Assistance",
+      "Case Management"
+    ],
+    "hours": "Monday-Friday: 9:00 AM - 5:00 PM",
+    "latitude": 33.9799,
+    "longitude": -84.4181
   },
   {
     "id": 6,
@@ -77,10 +106,16 @@
     "state": "GA",
     "zipCode": "30076",
     "county": "Fulton",
+    "latitude": 34.0533,
+    "longitude": -84.3356,
     "phone": "(770) 640-0399",
     "website": "https://www.nfcchelp.org",
     "description": "Serves North Fulton County with food pantry and emergency assistance.",
-    "services": ["Food Pantry", "Financial Assistance", "Clothing"],
+    "services": [
+      "Food Pantry",
+      "Financial Assistance",
+      "Clothing"
+    ],
     "hours": "Monday-Thursday: 9:00 AM - 4:00 PM"
   },
   {
@@ -94,8 +129,14 @@
     "phone": "(404) 215-6600",
     "website": "https://www.gatewayctr.org",
     "description": "Provides meals and comprehensive services for individuals experiencing homelessness.",
-    "services": ["Free Meals", "Shelter", "Case Management"],
-    "hours": "24/7"
+    "services": [
+      "Free Meals",
+      "Shelter",
+      "Case Management"
+    ],
+    "hours": "24/7",
+    "latitude": 33.7476,
+    "longitude": -84.3946
   },
   {
     "id": 8,
@@ -108,8 +149,14 @@
     "phone": "(404) 755-3353",
     "website": "https://www.hoseahelps.org",
     "description": "Year-round food programs and holiday meal distributions.",
-    "services": ["Food Pantry", "Holiday Meals", "Senior Programs"],
-    "hours": "Monday-Friday: 9:00 AM - 5:00 PM"
+    "services": [
+      "Food Pantry",
+      "Holiday Meals",
+      "Senior Programs"
+    ],
+    "hours": "Monday-Friday: 9:00 AM - 5:00 PM",
+    "latitude": 33.778,
+    "longitude": -84.4743
   },
   {
     "id": 9,
@@ -122,8 +169,14 @@
     "phone": "(404) 874-4756",
     "website": "https://www.emmaushouse.org",
     "description": "Community center providing food assistance and support services.",
-    "services": ["Food Pantry", "Youth Programs", "Senior Services"],
-    "hours": "Tuesday-Thursday: 10:00 AM - 2:00 PM"
+    "services": [
+      "Food Pantry",
+      "Youth Programs",
+      "Senior Services"
+    ],
+    "hours": "Tuesday-Thursday: 10:00 AM - 2:00 PM",
+    "latitude": 33.7397,
+    "longitude": -84.4398
   },
   {
     "id": 10,
@@ -136,8 +189,14 @@
     "phone": "(404) 296-9861",
     "website": "https://www.caction.org",
     "description": "Provides food, clothing, and emergency assistance to DeKalb County residents.",
-    "services": ["Food Pantry", "Clothing", "Emergency Assistance"],
-    "hours": "Monday-Friday: 9:00 AM - 4:30 PM"
+    "services": [
+      "Food Pantry",
+      "Clothing",
+      "Emergency Assistance"
+    ],
+    "hours": "Monday-Friday: 9:00 AM - 4:30 PM",
+    "latitude": 33.8133,
+    "longitude": -84.2374
   },
   {
     "id": 11,
@@ -150,8 +209,13 @@
     "phone": "(404) 377-5648",
     "website": "https://www.samaritanhouseatl.org",
     "description": "Food pantry serving Decatur and surrounding areas.",
-    "services": ["Food Pantry", "Emergency Food"],
-    "hours": "Monday-Friday: 10:00 AM - 3:00 PM"
+    "services": [
+      "Food Pantry",
+      "Emergency Food"
+    ],
+    "hours": "Monday-Friday: 10:00 AM - 3:00 PM",
+    "latitude": 33.7893,
+    "longitude": -84.2879
   },
   {
     "id": 12,
@@ -164,8 +228,14 @@
     "phone": "(404) 351-5050",
     "website": "https://www.svdpgeorgia.org",
     "description": "Provides food, furniture, and support to families in need.",
-    "services": ["Food Pantry", "Furniture Bank", "Home Visits"],
-    "hours": "Monday-Saturday: 9:00 AM - 5:00 PM"
+    "services": [
+      "Food Pantry",
+      "Furniture Bank",
+      "Home Visits"
+    ],
+    "hours": "Monday-Saturday: 9:00 AM - 5:00 PM",
+    "latitude": 33.8118,
+    "longitude": -84.4392
   },
   {
     "id": 13,
@@ -175,10 +245,16 @@
     "state": "GA",
     "zipCode": "30316",
     "county": "Fulton",
+    "latitude": 33.7244,
+    "longitude": -84.3485,
     "phone": "(770) 416-7530",
     "website": "https://www.openhandatlanta.org",
     "description": "Meal delivery service for individuals living with chronic illnesses.",
-    "services": ["Meal Delivery", "Nutrition Support", "Grocery Programs"],
+    "services": [
+      "Meal Delivery",
+      "Nutrition Support",
+      "Grocery Programs"
+    ],
     "hours": "Monday-Friday: 8:00 AM - 5:00 PM"
   },
   {
@@ -189,10 +265,16 @@
     "state": "GA",
     "zipCode": "30092",
     "county": "Gwinnett",
+    "latitude": 33.967,
+    "longitude": -84.2203,
     "phone": "(770) 449-4111",
     "website": "https://www.nourishgwinnett.org",
     "description": "Serves Gwinnett County with food pantry and nutrition programs.",
-    "services": ["Food Pantry", "Mobile Pantry", "Senior Programs"],
+    "services": [
+      "Food Pantry",
+      "Mobile Pantry",
+      "Senior Programs"
+    ],
     "hours": "Monday-Friday: 9:00 AM - 4:00 PM"
   },
   {
@@ -206,8 +288,14 @@
     "phone": "(404) 523-6571",
     "website": "https://www.goodsamatlanta.org",
     "description": "Healthcare and food assistance for uninsured individuals.",
-    "services": ["Food Pantry", "Healthcare", "Pharmacy"],
-    "hours": "Monday-Thursday: 8:00 AM - 5:00 PM"
+    "services": [
+      "Food Pantry",
+      "Healthcare",
+      "Pharmacy"
+    ],
+    "hours": "Monday-Thursday: 8:00 AM - 5:00 PM",
+    "latitude": 33.7733,
+    "longitude": -84.4224
   },
   {
     "id": 16,
@@ -217,10 +305,16 @@
     "state": "GA",
     "zipCode": "30046",
     "county": "Gwinnett",
+    "latitude": 33.9414,
+    "longitude": -83.9828,
     "phone": "(770) 962-6160",
     "website": "https://www.lawrencevillecoop.org",
     "description": "Emergency assistance including food and financial support.",
-    "services": ["Food Pantry", "Financial Assistance", "Clothing"],
+    "services": [
+      "Food Pantry",
+      "Financial Assistance",
+      "Clothing"
+    ],
     "hours": "Monday-Friday: 9:00 AM - 4:00 PM"
   },
   {
@@ -234,8 +328,14 @@
     "phone": "(404) 367-0909",
     "website": "https://www.iohomeless.org",
     "description": "Provides meals and shelter services for homeless families.",
-    "services": ["Free Meals", "Shelter", "Case Management"],
-    "hours": "24/7"
+    "services": [
+      "Free Meals",
+      "Shelter",
+      "Case Management"
+    ],
+    "hours": "24/7",
+    "latitude": 33.7933,
+    "longitude": -84.4199
   },
   {
     "id": 18,
@@ -245,10 +345,16 @@
     "state": "GA",
     "zipCode": "30035",
     "county": "DeKalb",
+    "latitude": 33.7065,
+    "longitude": -84.2426,
     "phone": "(770) 986-1333",
     "website": "https://www.rainbowvillage.org",
     "description": "Transitional housing and food support for homeless families.",
-    "services": ["Food Pantry", "Housing Support", "Childcare"],
+    "services": [
+      "Food Pantry",
+      "Housing Support",
+      "Childcare"
+    ],
     "hours": "Monday-Friday: 9:00 AM - 5:00 PM"
   },
   {
@@ -262,8 +368,14 @@
     "phone": "(404) 486-7900",
     "website": "https://www.salvationarmyatlanta.org",
     "description": "Multiple locations offering food pantry and emergency services.",
-    "services": ["Food Pantry", "Emergency Assistance", "Shelter"],
-    "hours": "Varies by location"
+    "services": [
+      "Food Pantry",
+      "Emergency Assistance",
+      "Shelter"
+    ],
+    "hours": "Varies by location",
+    "latitude": 33.7327,
+    "longitude": -84.3842
   },
   {
     "id": 20,
@@ -273,10 +385,16 @@
     "state": "GA",
     "zipCode": "30106",
     "county": "Cobb",
+    "latitude": 33.8043,
+    "longitude": -84.6371,
     "phone": "(770) 941-4300",
     "website": "https://www.communityoutreachcenter.org",
     "description": "Food pantry and support services for Cobb County residents.",
-    "services": ["Food Pantry", "Financial Assistance", "Thrift Store"],
+    "services": [
+      "Food Pantry",
+      "Financial Assistance",
+      "Thrift Store"
+    ],
     "hours": "Monday-Friday: 9:00 AM - 4:00 PM"
   },
   {
@@ -287,10 +405,16 @@
     "state": "GA",
     "zipCode": "30096",
     "county": "Gwinnett",
+    "latitude": 33.9908,
+    "longitude": -84.1696,
     "phone": "(770) 476-7797",
     "website": "https://www.serfamilia.org",
     "description": "Bilingual services including food assistance for Latino families.",
-    "services": ["Food Pantry", "Case Management", "Education"],
+    "services": [
+      "Food Pantry",
+      "Case Management",
+      "Education"
+    ],
     "hours": "Monday-Friday: 9:00 AM - 5:00 PM"
   },
   {
@@ -301,10 +425,16 @@
     "state": "GA",
     "zipCode": "30033",
     "county": "DeKalb",
+    "latitude": 33.8232,
+    "longitude": -84.3127,
     "phone": "(404) 321-3854",
     "website": "https://www.actionministries.org",
     "description": "Emergency food and financial assistance for DeKalb residents.",
-    "services": ["Food Pantry", "Financial Assistance", "Case Management"],
+    "services": [
+      "Food Pantry",
+      "Financial Assistance",
+      "Case Management"
+    ],
     "hours": "Monday-Friday: 10:00 AM - 2:00 PM"
   },
   {
@@ -315,10 +445,16 @@
     "state": "GA",
     "zipCode": "30341",
     "county": "DeKalb",
+    "latitude": 33.8862,
+    "longitude": -84.2778,
     "phone": "(770) 457-1200",
     "website": "https://www.newlifecm.org",
     "description": "Food pantry and support services for Chamblee area.",
-    "services": ["Food Pantry", "After School Programs", "English Classes"],
+    "services": [
+      "Food Pantry",
+      "After School Programs",
+      "English Classes"
+    ],
     "hours": "Tuesday, Thursday: 10:00 AM - 1:00 PM"
   },
   {
@@ -332,8 +468,13 @@
     "phone": "(770) 427-9862",
     "website": "https://www.helpinghandscenter.org",
     "description": "Food pantry serving East Cobb and surrounding areas.",
-    "services": ["Food Pantry", "Emergency Assistance"],
-    "hours": "Monday-Friday: 10:00 AM - 3:00 PM"
+    "services": [
+      "Food Pantry",
+      "Emergency Assistance"
+    ],
+    "hours": "Monday-Friday: 10:00 AM - 3:00 PM",
+    "latitude": 33.9966,
+    "longitude": -84.528
   },
   {
     "id": 25,
@@ -343,10 +484,16 @@
     "state": "GA",
     "zipCode": "30303",
     "county": "Fulton",
+    "latitude": 33.749,
+    "longitude": -84.388,
     "phone": "(404) 555-0123",
     "website": "https://www.goodr.co",
     "description": "Food rescue and distribution to combat hunger and reduce waste.",
-    "services": ["Food Distribution", "Mobile Pantry", "Community Popups"],
+    "services": [
+      "Food Distribution",
+      "Mobile Pantry",
+      "Community Popups"
+    ],
     "hours": "Check website for popup schedule"
   },
   {
@@ -360,8 +507,14 @@
     "phone": "(404) 892-3333",
     "website": "https://mgcfb.org",
     "description": "Large food bank serving metro Atlanta with multiple distribution sites and partner agencies.",
-    "services": ["Food Pantry", "Mobile Pantry", "Partner Agency Network"],
-    "hours": "Monday-Friday: 9:00 AM - 5:00 PM"
+    "services": [
+      "Food Pantry",
+      "Mobile Pantry",
+      "Partner Agency Network"
+    ],
+    "hours": "Monday-Friday: 9:00 AM - 5:00 PM",
+    "latitude": 33.811,
+    "longitude": -84.439
   },
   {
     "id": 27,
@@ -371,10 +524,16 @@
     "state": "GA",
     "zipCode": "30350",
     "county": "Fulton",
+    "latitude": 33.9351,
+    "longitude": -84.3304,
     "phone": "(770) 396-8890",
     "website": "https://helpinginhisname.org",
     "description": "Faith-based food pantry serving North Atlanta and Sandy Springs area.",
-    "services": ["Food Pantry", "Emergency Food", "Community Support"],
+    "services": [
+      "Food Pantry",
+      "Emergency Food",
+      "Community Support"
+    ],
     "hours": "Tuesday, Thursday: 10:00 AM - 1:00 PM"
   },
   {
@@ -385,10 +544,16 @@
     "state": "GA",
     "zipCode": "30213",
     "county": "Fulton",
+    "latitude": 33.5714,
+    "longitude": -84.5844,
     "phone": "(770) 969-4673",
     "website": "http://www.southerncrescentresourceministry.com",
     "description": "Serving South Fulton with food assistance and community resources.",
-    "services": ["Food Pantry", "Emergency Assistance", "Community Resources"],
+    "services": [
+      "Food Pantry",
+      "Emergency Assistance",
+      "Community Resources"
+    ],
     "hours": "Monday-Friday: 9:00 AM - 4:00 PM"
   },
   {
@@ -399,10 +564,16 @@
     "state": "GA",
     "zipCode": "30236",
     "county": "Clayton",
+    "latitude": 33.5218,
+    "longitude": -84.3548,
     "phone": "(770) 478-3803",
     "website": "https://www.oneclayton.org",
     "description": "Comprehensive services including food pantry for Clayton County residents.",
-    "services": ["Food Pantry", "Clothing", "Financial Assistance"],
+    "services": [
+      "Food Pantry",
+      "Clothing",
+      "Financial Assistance"
+    ],
     "hours": "Monday-Thursday: 9:00 AM - 4:00 PM"
   },
   {
@@ -413,10 +584,16 @@
     "state": "GA",
     "zipCode": "30260",
     "county": "Clayton",
+    "latitude": 33.5929,
+    "longitude": -84.3292,
     "phone": "(678) 466-4000",
     "website": "https://www.clayton.edu/family-resources/food-pantries",
     "description": "On-campus food pantry serving students and families in the Clayton County area.",
-    "services": ["Food Pantry", "Student Support", "Family Resources"],
+    "services": [
+      "Food Pantry",
+      "Student Support",
+      "Family Resources"
+    ],
     "hours": "Check website for current hours"
   },
   {
@@ -430,8 +607,14 @@
     "phone": "(404) 523-3333",
     "website": "https://www.heartstonourishhope.org",
     "description": "Free grocery delivery service providing fresh food to families in need.",
-    "services": ["Grocery Delivery", "Fresh Produce", "Family Support"],
-    "hours": "Monday-Friday: 9:00 AM - 5:00 PM"
+    "services": [
+      "Grocery Delivery",
+      "Fresh Produce",
+      "Family Support"
+    ],
+    "hours": "Monday-Friday: 9:00 AM - 5:00 PM",
+    "latitude": 33.7588,
+    "longitude": -84.3833
   },
   {
     "id": 32,
@@ -444,8 +627,13 @@
     "phone": "(404) 768-3210",
     "website": "https://www.needhelppayingbills.com/html/fulton_county_food_banks.html",
     "description": "Food pantry providing daily bread and groceries to Fulton County residents.",
-    "services": ["Food Pantry", "Emergency Food"],
-    "hours": "Monday-Friday: 10:00 AM - 3:00 PM"
+    "services": [
+      "Food Pantry",
+      "Emergency Food"
+    ],
+    "hours": "Monday-Friday: 10:00 AM - 3:00 PM",
+    "latitude": 33.768,
+    "longitude": -84.5129
   },
   {
     "id": 33,
@@ -455,10 +643,16 @@
     "state": "GA",
     "zipCode": "30303",
     "county": "Fulton",
+    "latitude": 33.749,
+    "longitude": -84.388,
     "phone": "(404) 555-1234",
     "website": "https://unitedfoodforce.org",
     "description": "Collaborative network distributing food across Georgia communities.",
-    "services": ["Food Distribution", "Community Partnerships", "Mobile Pantry"],
+    "services": [
+      "Food Distribution",
+      "Community Partnerships",
+      "Mobile Pantry"
+    ],
     "hours": "Varies by distribution site"
   },
   {
@@ -469,10 +663,16 @@
     "state": "GA",
     "zipCode": "30349",
     "county": "Fulton",
+    "latitude": 33.6042,
+    "longitude": -84.4964,
     "phone": "(770) 306-3260",
     "website": "https://www.needhelppayingbills.com/html/fulton_county_food_banks.html",
     "description": "South Fulton food pantry providing groceries and emergency assistance.",
-    "services": ["Food Pantry", "Emergency Assistance", "Community Resources"],
+    "services": [
+      "Food Pantry",
+      "Emergency Assistance",
+      "Community Resources"
+    ],
     "hours": "Monday-Friday: 9:00 AM - 4:00 PM"
   },
   {
@@ -486,8 +686,13 @@
     "phone": "(404) 761-2112",
     "website": "https://www.needhelppayingbills.com/html/fulton_county_food_banks.html",
     "description": "Community food pantry serving East Point and surrounding areas.",
-    "services": ["Food Pantry", "Emergency Food"],
-    "hours": "Tuesday, Thursday: 10:00 AM - 2:00 PM"
+    "services": [
+      "Food Pantry",
+      "Emergency Food"
+    ],
+    "hours": "Tuesday, Thursday: 10:00 AM - 2:00 PM",
+    "latitude": 33.6865,
+    "longitude": -84.4526
   },
   {
     "id": 36,
@@ -497,10 +702,16 @@
     "state": "GA",
     "zipCode": "30236",
     "county": "Clayton",
+    "latitude": 33.5184,
+    "longitude": -84.3691,
     "phone": "(770) 603-4500",
     "website": "https://www.clayton.edu/family-resources/food-pantries",
     "description": "Government-supported services including food assistance for Clayton County.",
-    "services": ["Food Pantry", "Emergency Services", "Community Programs"],
+    "services": [
+      "Food Pantry",
+      "Emergency Services",
+      "Community Programs"
+    ],
     "hours": "Monday-Friday: 8:30 AM - 5:00 PM"
   },
   {
@@ -511,10 +722,15 @@
     "state": "GA",
     "zipCode": "30260",
     "county": "Clayton",
+    "latitude": 33.5848,
+    "longitude": -84.3395,
     "phone": "(770) 968-1115",
     "website": "https://www.clayton.edu/family-resources/food-pantries",
     "description": "Local food pantry serving Morrow and Clayton County residents.",
-    "services": ["Food Pantry", "Emergency Food"],
+    "services": [
+      "Food Pantry",
+      "Emergency Food"
+    ],
     "hours": "Wednesday: 10:00 AM - 1:00 PM"
   },
   {
@@ -525,10 +741,15 @@
     "state": "GA",
     "zipCode": "30274",
     "county": "Clayton",
+    "latitude": 33.572,
+    "longitude": -84.4159,
     "phone": "(770) 997-9914",
     "website": "https://www.oneclayton.org",
     "description": "Food bank serving Riverdale and Clayton County communities.",
-    "services": ["Food Pantry", "Community Support"],
+    "services": [
+      "Food Pantry",
+      "Community Support"
+    ],
     "hours": "Monday, Wednesday: 11:00 AM - 3:00 PM"
   }
 ]

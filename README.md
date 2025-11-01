@@ -12,13 +12,21 @@ Access to food should never be a challenge. This app makes it easy for anyone in
 
 ## ✨ Features
 
+### Core Features
 - 📱 **Mobile-First Design** - Optimized for phones and tablets
-- 🔍 **Smart Filtering** - Search by zip code, county, or address
+- 🔍 **Smart Filtering** - Search by zip code, county, service type, or address
 - 📍 **Comprehensive Directory** - 38 food resources across metro Atlanta including Clayton County
 - 🏷️ **Service Tags** - Quickly identify food pantries, free meals, mobile pantries, and more
 - ⚡ **Fast & Lightweight** - Built with modern web technologies
 - 🌐 **No Installation Required** - Access directly from your web browser
 - ♿ **Accessible** - Designed to be usable by everyone
+
+### Enhanced Search Features (Phase 2)
+- 🗺️ **Interactive Map View** - Visualize all resources on a map with custom markers
+- 📍 **Geolocation Integration** - Enable your location to find the nearest resources
+- 📏 **Distance Sorting** - See distances and sort by proximity to your location
+- 🎯 **Service Type Filters** - Multi-select checkboxes to filter by specific services
+- ❤️ **Save Favorites** - Bookmark resources for quick access on future visits
 
 ## 🚀 Quick Start
 
@@ -44,10 +52,13 @@ npm run dev
 ## 🏗️ Technology Stack
 
 ### Core Technologies
-- **React** - UI library for building interactive interfaces
-- **Vite** - Next-generation frontend build tool
-- **SCSS/Sass** - CSS preprocessor for maintainable stylesheets
-- **React Router** - Client-side routing
+- **React 19.1.1** - UI library for building interactive interfaces
+- **Vite 7.1.7** - Next-generation frontend build tool
+- **SCSS/Sass 1.93.2** - CSS preprocessor for maintainable stylesheets
+- **React Router DOM 7.9.5** - Client-side routing
+- **Leaflet 3.x + React Leaflet** - Interactive map visualization
+- **Browser Geolocation API** - Location-aware features
+- **localStorage** - Client-side data persistence for favorites
 
 ### Why These Technologies?
 
@@ -56,6 +67,10 @@ npm run dev
 **SCSS/Sass**: Enables maintainable, modular CSS with variables, nesting, mixins, and functions. The BEM (Block Element Modifier) naming convention makes styles easy to understand and modify.
 
 **React Router**: Enables seamless navigation without page reloads, creating a smooth single-page application experience.
+
+**Leaflet**: Open-source mapping library with excellent mobile support and no API keys required. React Leaflet provides clean React bindings for declarative map components.
+
+**Browser APIs**: Leverages native geolocation and localStorage for zero-dependency features that work offline and respect user privacy.
 
 ## 📁 Project Structure
 
@@ -138,10 +153,14 @@ Each food resource contains:
   "phone": "(404) 555-1234",
   "website": "https://example.org",
   "description": "Description of services",
+  "latitude": "",
+  "longitude": "",
   "services": ["Food Pantry", "Free Meals"],
   "hours": "Monday-Friday: 9:00 AM - 5:00 PM"
 }
 ```
+
+If you do not know the latitude and longitude just add the food resource entry to `src\data\foodResources.json` and run `npm run coordinates` it should fill out the coordinates for you.
 
 ## 🛣️ Roadmap & Future Enhancements
 
@@ -151,11 +170,11 @@ Each food resource contains:
 - [x] Mobile-responsive design
 - [x] GitHub Pages deployment
 
-### Phase 2: Enhanced Search (Planned)
-- [ ] Map view with geolocation
-- [ ] Distance-based sorting
-- [ ] Advanced search filters (by service type)
-- [ ] Save favorite locations
+### Phase 2: Enhanced Search ✅
+- [x] Map view with geolocation
+- [x] Distance-based sorting
+- [x] Advanced search filters (by service type)
+- [x] Save favorite locations
 
 ### Phase 3: Community Features (Planned)
 - [ ] User reviews and ratings

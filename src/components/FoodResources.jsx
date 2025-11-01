@@ -1,14 +1,28 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import foodResourcesData from '../data/foodResources.json';
+import MapView from './MapView';
+import useGeolocation from '../hooks/useGeolocation';
+import { useFavorites } from '../hooks/useFavorites';
+import { sortByDistance } from '../utils/distanceCalculator';
 import '../styles/FoodResources.scss';
 
 export default function FoodResources() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCounty, setSelectedCounty] = useState('');
   const [selectedZip, setSelectedZip] = useState('');
+  const [selectedServices, setSelectedServices] = useState([]);
+  const [viewMode, setViewMode] = useState('list'); // 'list' or 'map'
+  const [sortBy, setSortBy] = useState('name'); // 'name' or 'distance'
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
+  
+  // Geolocation hook for user's location
+  const { coords: userLocation, loading: locationLoading, error: locationError, requestLocation } = useGeolocation();
+  
+  // Favorites hook for managing saved resources
+  const { favorites, toggleFavorite, isFavorite } = useFavorites();
 
-  // Get unique counties and zip codes for filters
+  // Get unique counties, zip codes, and services for filters
   const counties = useMemo(() => {
     const uniqueCounties = [...new Set(foodResourcesData.map(resource => resource.county))];
     return uniqueCounties.sort();
@@ -19,9 +33,16 @@ export default function FoodResources() {
     return uniqueZips.sort();
   }, []);
 
-  // Filter resources based on search and filters
+  const services = useMemo(() => {
+    const allServices = foodResourcesData.flatMap(resource => resource.services);
+    const uniqueServices = [...new Set(allServices)];
+    return uniqueServices.sort();
+  }, []);
+
+  // Filter and sort resources based on search, filters, and sort preference
   const filteredResources = useMemo(() => {
-    return foodResourcesData.filter(resource => {
+    // First, filter resources
+    let filtered = foodResourcesData.filter(resource => {
       const matchesSearch = searchTerm === '' ||
         resource.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         resource.address.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -30,15 +51,42 @@ export default function FoodResources() {
 
       const matchesCounty = selectedCounty === '' || resource.county === selectedCounty;
       const matchesZip = selectedZip === '' || resource.zipCode === selectedZip;
+      
+      // Service filter: OR logic - resource must have at least one selected service
+      const matchesService = selectedServices.length === 0 ||
+        selectedServices.some(service => resource.services.includes(service));
+      
+      // Favorites filter: if enabled, only show favorited resources
+      const matchesFavorites = !showFavoritesOnly || favorites.includes(resource.id);
 
-      return matchesSearch && matchesCounty && matchesZip;
+      return matchesSearch && matchesCounty && matchesZip && matchesService && matchesFavorites;
     });
-  }, [searchTerm, selectedCounty, selectedZip]);
+
+    // Then, sort based on sortBy preference
+    if (sortBy === 'distance' && userLocation) {
+      filtered = sortByDistance(filtered, userLocation.lat, userLocation.lng);
+    } else {
+      // Sort alphabetically by name
+      filtered = [...filtered].sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    return filtered;
+  }, [searchTerm, selectedCounty, selectedZip, selectedServices, sortBy, userLocation, showFavoritesOnly, favorites]);
 
   const clearFilters = () => {
     setSearchTerm('');
     setSelectedCounty('');
     setSelectedZip('');
+    setSelectedServices([]);
+    setShowFavoritesOnly(false);
+  };
+
+  const toggleService = (service) => {
+    setSelectedServices(prev => 
+      prev.includes(service)
+        ? prev.filter(s => s !== service)
+        : [...prev, service]
+    );
   };
 
   return (
@@ -52,9 +100,42 @@ export default function FoodResources() {
               {filteredResources.length} resource{filteredResources.length !== 1 ? 's' : ''} found
             </p>
           </div>
-          <Link to="/" className="food-resources__back-link">
-            ← Back to Home
-          </Link>
+          <div className="food-resources__header-actions">
+            <div className="food-resources__view-toggle">
+              <button
+                onClick={() => setViewMode('list')}
+                className={`food-resources__view-btn ${viewMode === 'list' ? 'food-resources__view-btn--active' : ''}`}
+                aria-label="List view"
+                aria-pressed={viewMode === 'list'}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <line x1="8" y1="6" x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                  <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                  <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                </svg>
+                <span>List</span>
+              </button>
+              <button
+                onClick={() => setViewMode('map')}
+                className={`food-resources__view-btn ${viewMode === 'map' ? 'food-resources__view-btn--active' : ''}`}
+                aria-label="Map view"
+                aria-pressed={viewMode === 'map'}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+                  <line x1="8" y1="2" x2="8" y2="18"></line>
+                  <line x1="16" y1="6" x2="16" y2="22"></line>
+                </svg>
+                <span>Map</span>
+              </button>
+            </div>
+            <Link to="/" className="food-resources__back-link">
+              ← Back to Home
+            </Link>
+          </div>
         </div>
 
         {/* Filters */}
@@ -103,10 +184,76 @@ export default function FoodResources() {
                 ))}
               </select>
             </div>
+
+            {/* Sort By */}
+            <div className="food-resources__filter-group">
+              <label htmlFor="sortBy">Sort By</label>
+              <select
+                id="sortBy"
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                disabled={sortBy === 'distance' && !userLocation}
+              >
+                <option value="name">Name (A-Z)</option>
+                <option value="distance" disabled={!userLocation}>
+                  Distance {!userLocation ? '(Enable location)' : '(Nearest)'}
+                </option>
+              </select>
+              {sortBy === 'distance' && !userLocation && !locationLoading && (
+                <button 
+                  onClick={requestLocation}
+                  className="food-resources__location-btn"
+                  type="button"
+                >
+                  📍 Enable Location
+                </button>
+              )}
+              {locationError && (
+                <p className="food-resources__location-error">
+                  {locationError}
+                </p>
+              )}
+            </div>
+          </div>
+
+          {/* Service Type Filters */}
+          <div className="food-resources__service-filters">
+            <h3>Service Types</h3>
+            <div className="food-resources__service-checkboxes">
+              {services.map(service => (
+                <label key={service} className="food-resources__checkbox-label">
+                  <input
+                    type="checkbox"
+                    checked={selectedServices.includes(service)}
+                    onChange={() => toggleService(service)}
+                    className="food-resources__checkbox"
+                  />
+                  <span>{service}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          {/* My Favorites Toggle */}
+          <div className="food-resources__favorites-toggle">
+            <label className="food-resources__checkbox-label food-resources__checkbox-label--favorites">
+              <input
+                type="checkbox"
+                checked={showFavoritesOnly}
+                onChange={(e) => setShowFavoritesOnly(e.target.checked)}
+                className="food-resources__checkbox"
+              />
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                Show My Favorites Only {favorites.length > 0 && `(${favorites.length})`}
+              </span>
+            </label>
           </div>
 
           {/* Clear Filters Button */}
-          {(searchTerm || selectedCounty || selectedZip) && (
+          {(searchTerm || selectedCounty || selectedZip || selectedServices.length > 0 || showFavoritesOnly) && (
             <button
               onClick={clearFilters}
               className="food-resources__clear-filters"
@@ -116,7 +263,7 @@ export default function FoodResources() {
           )}
         </div>
 
-        {/* Resources List */}
+        {/* Content: Map or List View */}
         {filteredResources.length === 0 ? (
           <div className="food-resources__no-results">
             <p>No resources found matching your filters.</p>
@@ -124,15 +271,37 @@ export default function FoodResources() {
               Clear filters and try again
             </button>
           </div>
+        ) : viewMode === 'map' ? (
+          <MapView 
+            resources={filteredResources}
+            userLocation={userLocation}
+          />
         ) : (
           <div className="food-resources__list">
             {filteredResources.map(resource => (
               <div key={resource.id} className="food-resources__card">
                 <div className="food-resources__card-header">
                   <div className="food-resources__card-title">
-                    <h3>{resource.name}</h3>
+                    <h3>
+                      {resource.name}
+                      {resource.distance != null && (
+                        <span className="food-resources__distance-badge">
+                          {resource.distance} mi
+                        </span>
+                      )}
+                    </h3>
                     <p>{resource.description}</p>
                   </div>
+                  <button
+                    onClick={() => toggleFavorite(resource.id)}
+                    className={`food-resources__favorite-btn ${isFavorite(resource.id) ? 'food-resources__favorite-btn--active' : ''}`}
+                    aria-label={isFavorite(resource.id) ? 'Remove from favorites' : 'Add to favorites'}
+                    title={isFavorite(resource.id) ? 'Remove from favorites' : 'Add to favorites'}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill={isFavorite(resource.id) ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                  </button>
                 </div>
 
                 <div className="food-resources__card-details">
@@ -185,6 +354,14 @@ export default function FoodResources() {
                         </span>
                       ))}
                     </div>
+                  </div>
+                )}
+
+                {/* Location Warning for missing coordinates */}
+                {(resource.latitude == null || resource.longitude == null || 
+                  typeof resource.latitude !== 'number' || typeof resource.longitude !== 'number') && (
+                  <div className="food-resources__location-warning">
+                    <span>📍 Map location unavailable</span>
                   </div>
                 )}
               </div>
