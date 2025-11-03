@@ -128,12 +128,23 @@ export default function Home() {
               <li>Sort by distance to find the nearest locations</li>
               <li>Save your favorites for easy access</li>
               <li>Click resource cards for details including hours and contact info</li>
+              <li>View organization details including location, hours, and contact info</li>
+
+               <br />
+                
+              <li>Click "View Ongoing Food Drives" to view food drives happening every month.</li>
+             
             </ol>
           </section>
 
           <div className="home__cta">
             <Link to="/resources" className="home__cta-button">
               Find Food Resources
+            </Link>
+          </div>
+          <div className="home__cta">
+            <Link to="/drives" className="home__cta-button">
+              View Ongoing Food Drives
             </Link>
           </div>
         </div>

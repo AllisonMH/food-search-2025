@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import FoodResources from './components/FoodResources';
+import MonthlyDrive from './components/MonthlyDrive';
 
 function App() {
   // Use the base path from Vite config for GitHub Pages, empty for local dev
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/resources" element={<FoodResources />} />
+        <Route path="/drives" element={<MonthlyDrive />} />
       </Routes>
     </Router>
   );
