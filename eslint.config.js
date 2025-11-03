@@ -26,4 +26,10 @@ export default defineConfig([
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
+  {
+  files: ['*.js', 'scripts/validate-data.js', 'scripts/geocode.js', 'test-*.js'],
+    languageOptions: {
+      globals: globals.node,
+    },
+  },
 ])

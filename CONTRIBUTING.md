@@ -101,6 +101,8 @@ Food resources are stored in `src/data/foodResources.json`. Each entry follows t
 - `services` - Array of service types
 - `hours` - Operating hours
 
+Note: `latitude` and `longitude` are optional but strongly recommended for map features. If one coordinate is provided the other must be present as well — the project's validation script treats single-coordinate entries as an error. When present, coordinates must be numbers within valid ranges (latitude: -90 to 90, longitude: -180 to 180).
+
 ### Steps to Add a Resource
 
 1. Open `src/data/foodResources.json`
@@ -109,6 +111,8 @@ Food resources are stored in `src/data/foodResources.json`. Each entry follows t
 4. Verify the JSON is properly formatted (use a JSON validator)
 5. Save the file
 
+Optional: If you don't have coordinates, you can run the project's geocoding helper after adding the entry (see the "Geocoding / Coordinates" section below).
+
 ### Verifying Information
 
 Before adding a resource, please:
@@ -116,6 +120,16 @@ Before adding a resource, please:
 - ✅ Check the website URL works
 - ✅ Confirm the organization is currently operating
 - ✅ Include accurate hours of operation
+
+### Geocoding / Coordinates
+
+If you don't have latitude/longitude for a new resource you can use the included geocoding helper which attempts to fill missing coordinates based on the address. Run:
+
+```bash
+npm run coordinates
+```
+
+Review and verify any coordinates the script adds before committing. The repository includes a validation script that will flag missing or invalid coordinates as errors (single-coordinate entries are treated as errors; fully missing coordinates are warned but encouraged to be filled for production).
 
 ## Code Contributions
 
@@ -149,7 +163,8 @@ food-search-2025/
 │   ├── styles/         # SCSS stylesheets
 │   │   ├── global.scss # Global variables and styles
 │   │   ├── Home.scss   # Home component styles
-│   │   └── FoodResources.scss # FoodResources styles
+│   │   ├── FoodResources.scss # FoodResources styles
+|   |   └── MapView.scss # Map View styles
 │   ├── App.jsx         # Main app component
 │   └── main.jsx        # Entry point
 ├── public/             # Static assets
@@ -339,6 +354,15 @@ npm run build
 
 # Preview production build
 npm run preview
+
+# Run the data validator
+npm run validate
+
+# Attempt to fill coordinates from addresses (geocode helper)
+npm run coordinates
+
+# Run the linter
+npm run lint
 
 # Deploy to GitHub Pages (maintainers only)
 npm run deploy
