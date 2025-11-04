@@ -61,35 +61,58 @@ npm run lint     # ESLint check (flat config with React hooks rules)
 Validate `foodResources.json` before committing:
 
 ```bash
-# Quick validation - check if JSON parses
-node -e "JSON.parse(require('fs').readFileSync('src/data/foodResources.json'))" && echo "Valid JSON"
-
-# Detailed validation - verify all required fields
-node -e "const data = JSON.parse(require('fs').readFileSync('src/data/foodResources.json')); const required = ['id', 'name', 'address', 'city', 'state', 'zipCode', 'county', 'phone', 'website', 'description', 'services', 'hours']; data.forEach((r, i) => { const missing = required.filter(f => !r[f]); if (missing.length) console.log(\`Resource \${i+1} (${r.name || 'unnamed'}) missing: \${missing.join(', ')}\`); }); console.log('Validation complete');"
+npm run validate   # Comprehensive validation with detailed error reporting
 ```
 
 **Schema rules enforced**:
 
-- All fields required (except `hours` may vary by location)
+- All fields required: `id`, `name`, `address`, `city`, `state`, `zipCode`, `county`, `latitude`, `longitude`, `phone`, `website`, `description`, `services`, `hours`
 - `id`: Sequential number (no duplicates)
 - `zipCode`: String type (preserves leading zeros)
 - `phone`: Format `(XXX) XXX-XXXX`
-- `website`: Must start with `https://`
-- `services`: Array from allowed values: `["Food Pantry", "Free Meals", "Mobile Pantry", "Emergency Assistance"]`
+- `website`: Must start with `http://` or `https://`
+- `latitude`/`longitude`: Both required together, valid coordinate ranges
+- `county`: Must be one of: Fulton, DeKalb, Cobb, Gwinnett, Clayton
+- `services`: Array from allowed service types (see constants/serviceTypes.js for full list)
 
 ## Project-Specific Conventions
 
 ### Adding New Food Resources
 
 1. Edit `src/data/foodResources.json` - **append to end** with next sequential `id`
-2. **Required fields**: All fields mandatory except `hours` can vary by location
+2. **Required fields**: All fields mandatory - see validation schema above
 3. **Format standards**:
    - Phone: `(XXX) XXX-XXXX`
-   - Website: Full URL with `https://`
+   - Website: Full URL with `http://` or `https://`
    - Zip code: String (not number) for leading zeros
-   - Services: Array from: `["Food Pantry", "Free Meals", "Mobile Pantry", "Emergency Assistance"]`
+   - County: Must be one of: Fulton, DeKalb, Cobb, Gwinnett, Clayton
+   - Services: Array from allowed service types (see `src/constants/serviceTypes.js` for complete list organized by category)
    - Latitude/Longitude: Numbers with 6 decimal places for map accuracy (use geocoding tools or Google Maps)
 4. **Geocoding new resources**: Use `scripts/geocode.js` script with Nominatim API or manually add coordinates from Google Maps (right-click > "What's here?")
+5. **Validate changes**: Run `npm run validate` before committing to catch any data quality issues
+
+### Service Types & Constants
+
+**Location**: `src/constants/serviceTypes.js` and `src/constants/counties.js`
+
+The project uses centralized constants for all allowed service types and counties to ensure data consistency:
+
+**Service type categories**:
+- **Primary Food Services**: Food Pantry, Free Meals, Mobile Pantry, Emergency Food, Meal Delivery, Food Distribution
+- **Support Services**: Emergency Assistance, Emergency Services, Financial Assistance, Case Management
+- **Housing Services**: Shelter, Housing Support
+- **Specialized Food**: Fresh Produce, Grocery Delivery, Grocery Programs, Holiday Meals, Nutrition Support
+- **Healthcare**: Healthcare, Pharmacy
+- **Age-Specific**: Senior Programs, Senior Services, Youth Programs, After School Programs, Childcare
+- **Education**: Education, English Classes
+- **Material Assistance**: Clothing, Furniture Bank, Thrift Store
+- **Community Support**: Community Resources, Community Support, Community Programs, Community Partnerships, Community Popups, Family Resources, Family Support, Home Visits, Student Support
+- **Partnership**: Partner Network, Partner Agency Network
+
+**Adding new service types**:
+1. Add to `src/constants/serviceTypes.js` in appropriate category
+2. Add to `scripts/validate-data-lib.js` allowedServices array
+3. Run `npm run validate` to ensure consistency
 
 ### Custom Hooks & Utilities
 

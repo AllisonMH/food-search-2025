@@ -1,6 +1,8 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import foodResourcesData from '../data/foodResources.json';
+import { ALL_SERVICE_TYPES, getServicesByCategory } from '../constants/serviceTypes';
+import { ALL_COUNTIES } from '../constants/counties';
 import MapView from './MapView';
 import useGeolocation from '../hooks/useGeolocation';
 import { useFavorites } from '../hooks/useFavorites';
@@ -23,21 +25,25 @@ export default function FoodResources() {
   const { favorites, toggleFavorite, isFavorite } = useFavorites();
 
   // Get unique counties, zip codes, and services for filters
-  const counties = useMemo(() => {
-    const uniqueCounties = [...new Set(foodResourcesData.map(resource => resource.county))];
-    return uniqueCounties.sort();
-  }, []);
+  // Counties: Use constants for consistency
+  const counties = useMemo(() => ALL_COUNTIES, []);
 
+  // Zip codes: Still extract from data since they're location-specific
   const zipCodes = useMemo(() => {
-    const uniqueZips = [...new Set(foodResourcesData.map(resource => resource.zipCode))];
+    const uniqueZips = [...new Set(foodResourcesData.map(resource => resource.zipCode).filter(Boolean))];
     return uniqueZips.sort();
   }, []);
 
+  // Services: Use constants but filter to only show services actually present in data
   const services = useMemo(() => {
-    const allServices = foodResourcesData.flatMap(resource => resource.services);
-    const uniqueServices = [...new Set(allServices)];
-    return uniqueServices.sort();
+    const servicesInData = new Set(foodResourcesData.flatMap(resource => resource.services));
+    return ALL_SERVICE_TYPES.filter(service => servicesInData.has(service));
   }, []);
+
+  // Group services by category for better UI organization
+  const servicesByCategory = useMemo(() => {
+    return getServicesByCategory(services);
+  }, [services]);
 
   // Filter and sort resources based on search, filters, and sort preference
   const filteredResources = useMemo(() => {
@@ -216,22 +222,27 @@ export default function FoodResources() {
             </div>
           </div>
 
-          {/* Service Type Filters */}
+          {/* Service Type Filters - Categorized */}
           <div className="food-resources__service-filters">
             <h3>Service Types</h3>
-            <div className="food-resources__service-checkboxes">
-              {services.map(service => (
-                <label key={service} className="food-resources__checkbox-label">
-                  <input
-                    type="checkbox"
-                    checked={selectedServices.includes(service)}
-                    onChange={() => toggleService(service)}
-                    className="food-resources__checkbox"
-                  />
-                  <span>{service}</span>
-                </label>
-              ))}
-            </div>
+            {servicesByCategory.map(({ category, services: categoryServices }) => (
+              <div key={category} className="food-resources__service-category">
+                <h4 className="food-resources__category-title">{category}</h4>
+                <div className="food-resources__service-checkboxes">
+                  {categoryServices.map(service => (
+                    <label key={service} className="food-resources__checkbox-label">
+                      <input
+                        type="checkbox"
+                        checked={selectedServices.includes(service)}
+                        onChange={() => toggleService(service)}
+                        className="food-resources__checkbox"
+                      />
+                      <span>{service}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* My Favorites Toggle */}
