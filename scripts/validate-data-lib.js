@@ -12,43 +12,59 @@ export const requiredFields = [
 ];
 
 // Allowed service values
+// Note: This list is kept in sync with src/constants/serviceTypes.js
+// If you add a new service type, update both files and run: npm run validate
 export const allowedServices = [
+  // Primary food services
   'Food Pantry',
   'Free Meals',
   'Mobile Pantry',
-  'Emergency Assistance',
-  'Partner Network',
-  'Youth Programs',
-  'Senior Programs',
-  'Case Management',
-  'Financial Assistance',
-  'Clothing',
-  'Shelter',
-  'Healthcare',
-  'Pharmacy',
-  'Housing Support',
-  'Childcare',
-  'Thrift Store',
-  'Education',
-  'After School Programs',
-  'English Classes',
-  'Community Resources',
-  'Community Support',
-  'Senior Services',
+  'Emergency Food',
   'Meal Delivery',
-  'Nutrition Support',
-  'Grocery Programs',
+  'Food Distribution',
+  // Support services
+  'Emergency Assistance',
+  'Emergency Services',
+  'Financial Assistance',
+  'Case Management',
+  // Housing services
+  'Shelter',
+  'Housing Support',
+  // Specialized food services
   'Fresh Produce',
   'Grocery Delivery',
+  'Grocery Programs',
   'Holiday Meals',
-  'Family Support',
-  'Emergency Food',
-  'Food Distribution',
+  'Nutrition Support',
+  // Healthcare services
+  'Healthcare',
+  'Pharmacy',
+  // Age-specific services
+  'Senior Programs',
+  'Senior Services',
+  'Youth Programs',
+  'After School Programs',
+  'Childcare',
+  // Education services
+  'Education',
+  'English Classes',
+  // Material assistance services
+  'Clothing',
+  'Furniture Bank',
+  'Thrift Store',
+  // Community and family support
+  'Community Resources',
+  'Community Support',
+  'Community Programs',
   'Community Partnerships',
   'Community Popups',
-  'Partner Agency Network',
+  'Family Resources',
+  'Family Support',
+  'Home Visits',
   'Student Support',
-  'Family Resources'
+  // Partnership services
+  'Partner Network',
+  'Partner Agency Network'
 ];
 
 /**

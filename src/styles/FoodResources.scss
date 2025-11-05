@@ -197,8 +197,27 @@
       font-size: 1rem;
       font-weight: 600;
       color: $text-primary;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
     }
+  }
+
+  &__service-category {
+    margin-bottom: 1.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__category-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $brand-primary;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba($brand-primary, 0.2);
   }
 
   &__favorites-toggle {
