@@ -228,8 +228,7 @@ Questions or want to discuss a contribution?
 
 ### 🟡 Medium Priority
 - **UI/UX Improvements**: Making the interface even more user-friendly
-- **Map Integration**: Adding a map view of resources
-- **Accessibility**: Improving screen reader support and keyboard navigation
+- **Accessibility**: #A11Y Improving screen reader 🧑‍🦯🦮 support and keyboard navigation
 
 ### 🟢 Nice to Have
 - **Dark Mode**: Adding a dark theme option
