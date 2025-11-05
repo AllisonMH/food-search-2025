@@ -157,14 +157,21 @@ export default function Home() {
             Want to help improve the app?
           </p>
           <a
-            href="https://github.com"
+            href="https://github.com/AllisonMH/food-search-2025"
             target="_blank"
             rel="noopener noreferrer"
           >
             Contribute on GitHub
           </a>
           <p className="home__footer-credit">
-            Created with 💜 by Kolor Koded Studios. Find us at kolorkodedstudios.com
+            Created with 💜 by Kolor Koded Studios. Find us at{' '}
+            <a
+              href="https://www.kolorkodedstudios.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              kolorkodedstudios.com
+            </a>
           </p>
         </div>
 
