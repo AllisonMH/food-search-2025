@@ -54,6 +54,22 @@ npm run deploy   # Runs predeploy (build) + gh-pages publish
 
 ```bash
 npm run lint     # ESLint check (flat config with React hooks rules)
+npm test         # Run all tests with Vitest
+```
+
+### Pre-Commit Hooks
+
+**Automated quality checks run before every commit** using Husky:
+
+1. **Data validation**: Validates `foodResources.json` schema and data quality
+2. **ESLint**: Checks code quality and style
+3. **Tests**: Runs all unit tests
+
+If any check fails, the commit will be blocked until issues are fixed. This ensures the repository always maintains high quality standards.
+
+**To bypass hooks** (not recommended):
+```bash
+git commit --no-verify   # Skip all pre-commit checks
 ```
 
 ### JSON Data Validation
@@ -276,6 +292,12 @@ When making contributions (with or without Claude):
 4. **Validate JSON** before committing data changes
 5. **Test all filters** when modifying `FoodResources.jsx`
 6. **Update this file** if you change architecture or add new patterns
+7. **Run pre-commit checks** - Hooks automatically run on commit, but you can test manually:
+   ```bash
+   npm run validate  # Validate data
+   npm run lint      # Check code quality
+   npm test          # Run all tests
+   ```
 
 ## Additional Resources
 
