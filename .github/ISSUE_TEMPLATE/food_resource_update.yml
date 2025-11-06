@@ -1,0 +1,193 @@
+name: 🍎 Food Resource Data Update
+description: Add a new food resource or update existing information
+title: "[Data]: "
+labels: ["data-update", "needs-verification"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping keep our food resource data accurate and up-to-date! Your contribution helps people in need find assistance.
+
+  - type: dropdown
+    id: update-type
+    attributes:
+      label: Update Type
+      description: What kind of update is this?
+      options:
+        - Add new food resource
+        - Update existing resource information
+        - Report resource closure/removal
+        - Correct inaccurate information
+    validations:
+      required: true
+
+  - type: input
+    id: resource-name
+    attributes:
+      label: Resource Name
+      description: Name of the food pantry, organization, or resource
+      placeholder: e.g., Atlanta Community Food Bank
+    validations:
+      required: true
+
+  - type: input
+    id: address
+    attributes:
+      label: Street Address
+      description: Full street address
+      placeholder: e.g., 123 Main Street
+    validations:
+      required: false
+
+  - type: input
+    id: city
+    attributes:
+      label: City
+      placeholder: e.g., Atlanta
+    validations:
+      required: false
+
+  - type: input
+    id: zipcode
+    attributes:
+      label: Zip Code
+      placeholder: e.g., 30303
+    validations:
+      required: false
+
+  - type: dropdown
+    id: county
+    attributes:
+      label: County
+      description: Which county is this resource located in?
+      options:
+        - Fulton
+        - DeKalb
+        - Cobb
+        - Gwinnett
+        - Clayton
+        - Other (please specify in additional info)
+    validations:
+      required: false
+
+  - type: input
+    id: phone
+    attributes:
+      label: Phone Number
+      description: Contact phone number
+      placeholder: e.g., (404) 555-1234
+    validations:
+      required: false
+
+  - type: input
+    id: website
+    attributes:
+      label: Website URL
+      description: Organization's website (include https://)
+      placeholder: https://www.example.org
+    validations:
+      required: false
+
+  - type: textarea
+    id: services
+    attributes:
+      label: Services Offered
+      description: What services does this location provide?
+      placeholder: |
+        Select all that apply:
+        - Food Pantry
+        - Free Meals
+        - Mobile Pantry
+        - Emergency Food
+        - Meal Delivery
+        - Food Distribution
+        - Clothing Assistance
+        - Other (please describe)
+    validations:
+      required: false
+
+  - type: textarea
+    id: hours
+    attributes:
+      label: Hours of Operation
+      description: When is this resource available?
+      placeholder: |
+        e.g.,
+        Monday-Friday: 9:00 AM - 5:00 PM
+        Saturday: 10:00 AM - 2:00 PM
+        Closed Sunday
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Brief description of services and any important details (eligibility requirements, what to bring, etc.)
+      placeholder: This organization provides...
+    validations:
+      required: false
+
+  - type: textarea
+    id: verification-source
+    attributes:
+      label: How Did You Verify This Information?
+      description: Help us ensure data accuracy by explaining your source
+      placeholder: |
+        e.g.,
+        - I visited the location
+        - I called and confirmed
+        - From organization's official website
+        - Personal experience
+    validations:
+      required: true
+
+  - type: dropdown
+    id: coordinates-known
+    attributes:
+      label: Do you have coordinates (latitude/longitude)?
+      description: Coordinates help with map features. If not, we can geocode the address.
+      options:
+        - "No, please geocode from address"
+        - "Yes, I'll provide coordinates"
+    validations:
+      required: false
+
+  - type: input
+    id: latitude
+    attributes:
+      label: Latitude (if known)
+      placeholder: e.g., 33.7490
+    validations:
+      required: false
+
+  - type: input
+    id: longitude
+    attributes:
+      label: Longitude (if known)
+      placeholder: e.g., -84.3880
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional Information
+      description: Any other details that would be helpful
+      placeholder: Any other relevant information...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: verification
+    attributes:
+      label: Verification Checklist
+      description: Please confirm the following
+      options:
+        - label: I have verified this information is current and accurate
+          required: true
+        - label: I have checked that this resource is not already listed (for new additions)
+          required: false
+        - label: I understand this information will be public and help people find food assistance
+          required: true
