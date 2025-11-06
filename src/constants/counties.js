@@ -8,11 +8,16 @@
  */
 
 export const COUNTIES = {
-  FULTON: 'Fulton',
-  DEKALB: 'DeKalb',
-  COBB: 'Cobb',
-  GWINNETT: 'Gwinnett',
-  CLAYTON: 'Clayton',
+  // Core Metro Atlanta Counties (currently in database)
+  FULTON: "Fulton",
+  DEKALB: "DeKalb",
+  COBB: "Cobb",
+  GWINNETT: "Gwinnett",
+  CLAYTON: "Clayton",
+  CHEROKEE: "Cherokee",
+  PAULDING: "Paulding",
+  HENRY: "Henry",
+  DOUGLAS: "Douglas",
 };
 
 /**
