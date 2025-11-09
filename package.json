@@ -14,7 +14,8 @@
     "deploy": "gh-pages -d dist",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "test:coverage": "vitest --coverage"
+    "test:coverage": "vitest --coverage",
+    "prepare": "husky"
   },
   "homepage": "https://allisonmh.github.io/food-search-2025/",
   "dependencies": {
@@ -39,6 +40,7 @@
     "eslint-plugin-react-refresh": "^0.4.22",
     "gh-pages": "^6.3.0",
     "globals": "^16.4.0",
+    "husky": "^9.1.7",
     "jsdom": "^27.1.0",
     "sass": "^1.93.2",
     "vite": "^7.1.7",

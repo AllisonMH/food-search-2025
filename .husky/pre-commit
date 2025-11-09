@@ -1,0 +1,29 @@
+#!/bin/sh
+
+echo "🔍 Running pre-commit checks..."
+
+# 1. Validate food resources data
+echo "\n📊 Validating food resources data..."
+npm run validate
+if [ $? -ne 0 ]; then
+  echo "❌ Data validation failed. Please fix errors before committing."
+  exit 1
+fi
+
+# 2. Run ESLint
+echo "\n🔧 Running ESLint..."
+npm run lint
+if [ $? -ne 0 ]; then
+  echo "❌ Linting failed. Please fix errors before committing."
+  exit 1
+fi
+
+# 3. Run tests
+echo "\n🧪 Running tests..."
+npm test -- --run
+if [ $? -ne 0 ]; then
+  echo "❌ Tests failed. Please fix failing tests before committing."
+  exit 1
+fi
+
+echo "\n✅ All pre-commit checks passed!"

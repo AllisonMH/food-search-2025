@@ -67,6 +67,22 @@ export const allowedServices = [
   'Partner Agency Network'
 ];
 
+// Allowed county values
+// Note: This list is kept in sync with src/constants/counties.js
+// If you add a new county, update both files and run: npm run validate
+export const allowedCounties = [
+  // Core Metro Atlanta Counties
+  'Fulton',
+  'DeKalb',
+  'Cobb',
+  'Gwinnett',
+  'Clayton',
+  'Cherokee',
+  'Paulding',
+  'Henry',
+  'Douglas'
+];
+
 /**
  * Check for duplicate IDs in the resources array
  * @param {Array} resources - Array of resource objects
@@ -143,6 +159,16 @@ export function checkInvalidServices(services) {
  */
 export function isServicesArray(services) {
   return Array.isArray(services);
+}
+
+/**
+ * Validate county is in allowed list
+ * @param {string} county - County name to validate
+ * @returns {boolean} True if county is in allowed list
+ */
+export function isCountyValid(county) {
+  if (!county) return false;
+  return allowedCounties.includes(county);
 }
 
 /**
@@ -248,6 +274,11 @@ export function validateResource(resource, index) {
   // Check website format
   if (resource.website && !isWebsiteFormatValid(resource.website)) {
     errors.push(`website must start with http:// or https://, got: ${resource.website}`);
+  }
+
+  // Check county
+  if (resource.county && !isCountyValid(resource.county)) {
+    errors.push(`county must be one of allowed counties, got: ${resource.county}`);
   }
 
   // Check services
