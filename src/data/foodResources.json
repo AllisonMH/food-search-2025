@@ -1881,5 +1881,150 @@
     "hours": "Tuesday: 1:00 PM - 3:00 PM",
     "latitude": 33.7369,
     "longitude": -84.2532
+  },
+  {
+    "id": 118,
+    "name": "Made For Bigger, Inc.",
+    "address": "4209 Northeast Expy",
+    "city": "Doraville",
+    "state": "GA",
+    "zipCode": "30340",
+    "county": "DeKalb",
+    "phone": "(470) 395-2104",
+    "website": "https://www.madeforbigger.org",
+    "description": "Community nonprofit hosting monthly grocery distributions (Proud Eats Food Pantry) and outreach programs.",
+    "services": ["Food Pantry", "Grocery Distribution", "Community Outreach"],
+    "hours": "Monthly distributions; check site or listings for next date",
+    "latitude": 33.9053,
+    "longitude": -84.2739
+  },
+  {
+    "id": 119,
+    "name": "The Salvation Army — Atlanta Peachcrest Corps",
+    "address": "3500 Sherrydale Ln",
+    "city": "Decatur",
+    "state": "GA",
+    "zipCode": "30032",
+    "county": "DeKalb",
+    "phone": "1-800-SAL-ARMY",
+    "website": "https://southernusa.salvationarmy.org/atlanta-peachcrest/",
+    "description": "Family & Social Services including a food pantry and seasonal hunger relief in DeKalb County.",
+    "services": [
+      "Food Pantry",
+      "Hunger Relief",
+      "Utility/Rent Assistance (seasonal)"
+    ],
+    "hours": "Food pantry open Mon, Tue, Thu, Fri (call for times)",
+    "latitude": 33.7546,
+    "longitude": -84.2683
+  },
+  {
+    "id": 120,
+    "name": "Wade Walker Park Family YMCA",
+    "address": "5605 Rockbridge Rd",
+    "city": "Stone Mountain",
+    "state": "GA",
+    "zipCode": "30088",
+    "county": "DeKalb",
+    "phone": "(678) 781-9622",
+    "website": "https://ymcaatlanta.org/locations/wade-walker-park-family-ymca",
+    "description": "YMCA branch that hosts recurring hunger-relief grocery distributions.",
+    "services": [
+      "Mobile Pantry / Drive-Through Distribution",
+      "Youth & Family Programs"
+    ],
+    "hours": "1st & 3rd Friday each month, 11:30 AM – 1:00 PM (distribution)",
+    "latitude": 33.7806,
+    "longitude": -84.1671
+  },
+  {
+    "id": 121,
+    "name": "Omega Support Center",
+    "address": "2001 Montreal Rd, Ste 100",
+    "city": "Tucker",
+    "state": "GA",
+    "zipCode": "30084",
+    "county": "DeKalb",
+    "phone": "(678) 615-2390",
+    "website": "http://www.omegasupportcenter.org",
+    "description": "Community nonprofit providing mass food distributions and outreach; office open on select weekdays.",
+    "services": [
+      "Food Distribution",
+      "Little Food Pantries",
+      "Community Outreach"
+    ],
+    "hours": "Mon–Wed & Fri: 9:00 AM – 5:00 PM (distribution schedules vary)",
+    "latitude": 33.8384,
+    "longitude": -84.2239
+  },
+  {
+    "id": 122,
+    "name": "New Love Tabernacle Christian Church",
+    "address": "5480 Browns Mill Rd",
+    "city": "Stonecrest",
+    "state": "GA",
+    "zipCode": "30038",
+    "county": "DeKalb",
+    "phone": "(770) 981-0072",
+    "website": "https://newlovetabernacle.org",
+    "description": "Church that hosts community food distributions/food-bank events.",
+    "services": ["Food Distribution Events", "Church & Community Outreach"],
+    "hours": "Events scheduled as announced; check church site or call",
+    "latitude": 33.6675,
+    "longitude": -84.1454
+  },
+  {
+    "id": 123,
+    "name": "New Birth Missionary Baptist Church — The King’s Table",
+    "address": "6400 Woodrow Rd",
+    "city": "Stonecrest",
+    "state": "GA",
+    "zipCode": "30038",
+    "county": "DeKalb",
+    "phone": "(770) 696-9600",
+    "website": "https://www.wearenewbirth.org/kings-table",
+    "description": "New Birth’s King’s Table Food Ministry provides large-scale free grocery distributions for families.",
+    "services": [
+      "Food Pantry / Drive-Through Distribution",
+      "Regional Distribution Hub"
+    ],
+    "hours": "1st & 3rd Saturday monthly, typically 9:00 AM (arrive early)",
+    "latitude": 33.7077,
+    "longitude": -84.1399
+  },
+  {
+    "id": 124,
+    "name": "Ray of Hope Christian Church",
+    "address": "2778 Snapfinger Rd",
+    "city": "Decatur",
+    "state": "GA",
+    "zipCode": "30034",
+    "county": "DeKalb",
+    "phone": "(770) 696-5100",
+    "website": "https://www.rayofhope.org/",
+    "description": "Church hosting periodic free food giveaway events for the community.",
+    "services": ["Food Giveaway (periodic)", "Church & Community Outreach"],
+    "hours": "Dates vary; recent events listed on site (e.g., Saturday 10:00 AM)",
+    "latitude": 33.6997,
+    "longitude": -84.1977
+  },
+  {
+    "id": 125,
+    "name": "God’s Life and Living Holiness Church of Jesus Christ",
+    "address": "3837 Linecrest Rd",
+    "city": "Ellenwood",
+    "state": "GA",
+    "zipCode": "30294",
+    "county": "DeKalb",
+    "phone": "(404) 244-5656",
+    "website": "https://www.facebook.com/p/Gods-Life-and-Living-Holiness-Church-of-Jesus-Christ-100092838262686/",
+    "description": "Church location used for community food pantry/giveaway events.",
+    "services": [
+      "Food Pantry / Food Giveaway (periodic)",
+      "Church & Community Outreach"
+    ],
+    "hours": "Schedule varies; call for upcoming distributions",
+    "latitude": 33.6625,
+    "longitude": -84.2473
   }
 ]
