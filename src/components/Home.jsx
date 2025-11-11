@@ -147,6 +147,11 @@ export default function Home() {
               View Ongoing Food Drives
             </Link>
           </div>
+          <div className="home__cta">
+            <Link to="/thank-you" className="home__cta-button">
+              Thank Our Contributors
+            </Link>
+          </div>
         </div>
 
         {/* Footer Info */}
