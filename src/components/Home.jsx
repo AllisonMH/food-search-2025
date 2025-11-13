@@ -148,6 +148,14 @@ export default function Home() {
             </Link>
           </div>
           <div className="home__cta">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSf6Nx6fjZbklqhOdQzEy3IQ7-13QZ-rM53Z1f_TZ9_9YubeNA/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="home__cta-button"
+            >
+              Submit New Food Resource
+            </a>
             <Link to="/thank-you" className="home__cta-button">
               Thank Our Contributors
             </Link>
