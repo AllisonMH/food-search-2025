@@ -166,8 +166,10 @@
   }
 
   &__cta {
+    display: block;
     text-align: center;
     margin-top: 2rem;
+    clear: both;
   }
 
   &__cta-button {
