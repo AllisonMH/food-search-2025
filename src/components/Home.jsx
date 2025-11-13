@@ -161,9 +161,6 @@ export default function Home() {
             >
               Submit New Food Resource
             </a>
-            <Link to="/thank-you" className="home__cta-button">
-              Thank Our Contributors
-            </Link>
           </div>
         </div>
 
