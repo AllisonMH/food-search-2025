@@ -27,7 +27,7 @@ export default defineConfig([
     },
   },
   {
-  files: ['*.js', 'scripts/validate-data.js', 'scripts/geocode.js', 'test-*.js'],
+    files: ['*.js', 'scripts/**/*.js', 'test-*.js', 'api/**/*.js', 'lib/**/*.js', 'migrations/**/*.js'],
     languageOptions: {
       globals: globals.node,
     },
