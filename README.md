@@ -2,7 +2,7 @@
 
 A mobile-friendly web application helping people in the Atlanta metro area find local food assistance resources including food pantries, meal programs, and emergency food services.
 
-[![Live Demo](https://img.shields.io/badge/demo-live-green.svg)](https://allisonmh.github.io/food-search-2025/)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/AllisonMH/food-search-2025)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
@@ -31,7 +31,7 @@ Access to food should never be a challenge. This app makes it easy for anyone in
 ## 🚀 Quick Start
 
 ### View the Live App
-Visit: [https://allisonmh.github.io/food-search-2025/](https://allisonmh.github.io/food-search-2025/)
+Once deployed to Vercel, your app will be available at your Vercel URL (e.g., `https://food-search-2025.vercel.app`)
 
 ### Run Locally
 
@@ -237,21 +237,31 @@ Questions or want to discuss a contribution?
 
 ## 📱 Deployment
 
-### GitHub Pages
+This app is configured for deployment on **Vercel**, a modern hosting platform optimized for frontend frameworks.
 
-The app is automatically deployed to GitHub Pages on every push to the main branch.
+### Deploy to Vercel
 
-Manual deployment:
-```bash
-npm run deploy
-```
+Vercel offers zero-configuration deployment with automatic preview URLs for pull requests.
+
+**Quick Deploy:**
+1. Sign up at [vercel.com](https://vercel.com/signup) (free)
+2. Import the GitHub repository
+3. Deploy with one click!
+
+**Vercel will automatically:**
+- Detect the Vite framework
+- Run the build command
+- Deploy to a global CDN
+- Set up HTTPS
+- Create preview deployments for PRs
+
+For detailed step-by-step instructions, see [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md)
 
 ### Custom Domain (Optional)
 
-To use a custom domain:
-1. Add a `CNAME` file to the `public/` directory with your domain
-2. Configure DNS settings with your domain provider
-3. Enable HTTPS in GitHub repository settings
+1. Go to Project Settings → Domains in Vercel dashboard
+2. Add your domain and follow DNS configuration instructions
+3. HTTPS is automatically configured
 
 ## 🧪 Testing
 
