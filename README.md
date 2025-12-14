@@ -31,7 +31,7 @@ Access to food should never be a challenge. This app makes it easy for anyone in
 ## 🚀 Quick Start
 
 ### View the Live App
-Visit: [https://allisonmh.github.io/food-search-2025/](https://allisonmh.github.io/food-search-2025/)
+Visit: [https://food-search-2025.vercel.app/](https://food-search-2025.vercel.app/)
 
 ### Run Locally
 
