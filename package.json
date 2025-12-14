@@ -10,14 +10,11 @@
     "preview": "vite preview",
     "validate": "node scripts/validate-data.js",
     "coordinates": "node scripts/geocode.js",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
     "prepare": "husky"
   },
-  "homepage": "https://allisonmh.github.io/food-search-2025/",
   "dependencies": {
     "leaflet": "^1.9.4",
     "react": "^19.1.1",
@@ -38,7 +35,6 @@
     "eslint": "^9.36.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.22",
-    "gh-pages": "^6.3.0",
     "globals": "^16.4.0",
     "husky": "^9.1.7",
     "jsdom": "^27.1.0",
