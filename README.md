@@ -31,7 +31,7 @@ Access to food should never be a challenge. This app makes it easy for anyone in
 ## 🚀 Quick Start
 
 ### View the Live App
-Once deployed to Vercel, your app will be available at your Vercel URL (e.g., `https://food-search-2025.vercel.app`)
+Visit: [https://food-search-2025.vercel.app/](https://food-search-2025.vercel.app/)
 
 ### Run Locally
 
