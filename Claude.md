@@ -4,10 +4,10 @@
 
 ## Project Overview
 
-This is a **mobile-first React SPA** helping Atlanta residents find food assistance. The app uses **static JSON data** (no backend) with **client-side filtering** for zero-latency search. Deployed to **GitHub Pages** with automated deployments via `gh-pages` npm package.
+This is a **mobile-first React SPA** helping Atlanta residents find food assistance. The app uses **static JSON data** (no backend) with **client-side filtering** for zero-latency search. Deployed to **Vercel** with automatic deployments on every git push.
 
-**Live URL**: https://allisonmh.github.io/food-search-2025/
 **Repository**: https://github.com/AllisonMH/food-search-2025
+**Hosting**: Vercel (automatic deployment from GitHub)
 
 ## Architecture & Key Design Decisions
 
@@ -44,16 +44,42 @@ npm run preview  # Test production build locally
 
 ### Deployment
 
+**Vercel Deployment** (Automatic):
+- Push to GitHub automatically triggers Vercel deployment
+- No manual deployment needed
+- Preview URLs generated for all PRs
+
+**Manual Build** (for testing):
 ```bash
-npm run deploy   # Runs predeploy (build) + gh-pages publish
+npm run build    # Production build to dist/
+npm run preview  # Test production build locally
 ```
 
-**Important**: `vite.config.js` sets `base: '/food-search-2025/'` for GitHub Pages subdirectory. Local dev ignores this.
+**Important**:
+- Vercel uses root path (`/`) - configured in `vite.config.js`
+- `vercel.json` configures SPA routing and build settings
+- Automatic HTTPS and CDN distribution included
 
 ### Code Quality
 
 ```bash
 npm run lint     # ESLint check (flat config with React hooks rules)
+npm test         # Run all tests with Vitest
+```
+
+### Pre-Commit Hooks
+
+**Automated quality checks run before every commit** using Husky:
+
+1. **Data validation**: Validates `foodResources.json` schema and data quality
+2. **ESLint**: Checks code quality and style
+3. **Tests**: Runs all unit tests
+
+If any check fails, the commit will be blocked until issues are fixed. This ensures the repository always maintains high quality standards.
+
+**To bypass hooks** (not recommended):
+```bash
+git commit --no-verify   # Skip all pre-commit checks
 ```
 
 ### JSON Data Validation
@@ -195,11 +221,15 @@ Location: `src/styles/global.scss` lines 4-7
 
 ## Gotchas & Constraints
 
-- **GitHub Pages base path**: Changing repo name requires updating `vite.config.js` base AND `package.json` homepage
+- **Deployment**:
+  - Vercel uses root path (`/`) - configured in `vite.config.js`
+  - Automatic deployments on every push to main branch
+  - Preview deployments for all pull requests
 - **JSON data size**: Keep under 100KB - client downloads full dataset on page load
 - **No backend validation**: Filter dropdowns populated from data, so malformed JSON breaks filters
 - **Mobile viewport**: Test at 375px width - this is the primary use case
 - **Internationalization (i18n)**: Not currently implemented; all strings are hardcoded English. Future feature planned - avoid adding string concatenation that would complicate translation
+- **SPA Routing**: `vercel.json` rewrites all routes to `/index.html` for client-side routing to work on Vercel
 
 ## Working with Claude
 
@@ -276,6 +306,12 @@ When making contributions (with or without Claude):
 4. **Validate JSON** before committing data changes
 5. **Test all filters** when modifying `FoodResources.jsx`
 6. **Update this file** if you change architecture or add new patterns
+7. **Run pre-commit checks** - Hooks automatically run on commit, but you can test manually:
+   ```bash
+   npm run validate  # Validate data
+   npm run lint      # Check code quality
+   npm test          # Run all tests
+   ```
 
 ## Additional Resources
 

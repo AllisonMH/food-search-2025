@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 General Questions or Discussion
+    url: https://github.com/AllisonMH/food-search-2025/discussions
+    about: Have a question or want to discuss the project? Start a discussion!
+  - name: 📖 Documentation
+    url: https://github.com/AllisonMH/food-search-2025#readme
+    about: Read the project documentation and README
+  - name: 🤝 Contributing Guide
+    url: https://github.com/AllisonMH/food-search-2025/blob/main/CONTRIBUTING.md
+    about: Learn how to contribute to this project

@@ -2,7 +2,7 @@
 
 A mobile-friendly web application helping people in the Atlanta metro area find local food assistance resources including food pantries, meal programs, and emergency food services.
 
-[![Live Demo](https://img.shields.io/badge/demo-live-green.svg)](https://allisonmh.github.io/food-search-2025/)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/AllisonMH/food-search-2025)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
@@ -31,7 +31,7 @@ Access to food should never be a challenge. This app makes it easy for anyone in
 ## 🚀 Quick Start
 
 ### View the Live App
-Visit: [https://allisonmh.github.io/food-search-2025/](https://allisonmh.github.io/food-search-2025/)
+Visit: [https://food-search-2025.vercel.app/](https://food-search-2025.vercel.app/)
 
 ### Run Locally
 
@@ -51,7 +51,7 @@ npm run dev
 
 ## 🏗️ Technology Stack
 
-### Core Technologies
+### Frontend Technologies
 - **React 19.1.1** - UI library for building interactive interfaces
 - **Vite 7.1.7** - Next-generation frontend build tool
 - **SCSS/Sass 1.93.2** - CSS preprocessor for maintainable stylesheets
@@ -59,6 +59,13 @@ npm run dev
 - **Leaflet 3.x + React Leaflet** - Interactive map visualization
 - **Browser Geolocation API** - Location-aware features
 - **localStorage** - Client-side data persistence for favorites
+
+### Backend Technologies (Phase 2.5) 🚧
+- **PostgreSQL** - Relational database for food resources
+- **Express.js** - Web framework for RESTful API
+- **node-postgres (pg)** - PostgreSQL client for Node.js
+- **Vercel Serverless Functions** - Backend hosting
+- **Vercel Postgres / Supabase** - Managed PostgreSQL database
 
 ### Why These Technologies?
 
@@ -76,24 +83,47 @@ npm run dev
 
 ```
 food-search-2025/
-├── src/
-│   ├── components/           # React components
-│   │   ├── Home.jsx         # Landing page with information
-│   │   └── FoodResources.jsx # Searchable resource directory
-│   ├── data/                # Data files
-│   │   └── foodResources.json # Food resource database
-│   ├── styles/              # SCSS stylesheets
-│   │   ├── global.scss      # Global styles and variables
-│   │   ├── Home.scss        # Home component styles
-│   │   └── FoodResources.scss # FoodResources component styles
-│   ├── App.jsx              # Main application component
-│   └── main.jsx             # Application entry point
-├── public/                  # Static assets
-├── .github/                 # GitHub configuration
-├── CONTRIBUTING.md          # Contribution guidelines
-├── package.json             # Dependencies and scripts
-├── vite.config.js          # Vite configuration
-└── README.md               # This file
+├── src/                     # Frontend source code
+│   ├── components/          # React components
+│   │   ├── Home.jsx        # Landing page with information
+│   │   ├── FoodResources.jsx # Searchable resource directory
+│   │   └── MapView.jsx     # Interactive map component
+│   ├── data/               # Static data files
+│   │   └── foodResources.json # Food resource database (125 resources)
+│   ├── hooks/              # Custom React hooks
+│   │   ├── useGeolocation.js # Browser geolocation hook
+│   │   └── useFavorites.js   # LocalStorage favorites hook
+│   ├── utils/              # Utility functions
+│   │   └── distanceCalculator.js # Haversine distance formula
+│   ├── styles/             # SCSS stylesheets
+│   │   ├── global.scss     # Global styles and variables
+│   │   ├── Home.scss       # Home component styles
+│   │   ├── FoodResources.scss # FoodResources component styles
+│   │   └── MapView.scss    # Map component styles
+│   ├── App.jsx             # Main application component
+│   └── main.jsx            # Application entry point
+├── api/                    # Backend API (Phase 2.5) 🚧
+│   ├── resources/
+│   │   ├── index.js        # GET /api/resources
+│   │   └── [id].js         # GET /api/resources/:id
+│   ├── counties.js         # GET /api/counties
+│   ├── service-types.js    # GET /api/service-types
+│   └── admin/              # Admin endpoints (future)
+├── lib/                    # Shared backend code 🚧
+│   └── db.js               # PostgreSQL connection pool
+├── migrations/             # Database migrations 🚧
+│   ├── 001_initial_schema.sql
+│   ├── 002_seed_counties.sql
+│   ├── 003_seed_service_types.sql
+│   └── 004_migrate_json_data.js
+├── public/                 # Static assets
+├── .github/                # GitHub configuration
+├── BACKEND_MIGRATION.md    # Backend migration documentation 🚧
+├── CONTRIBUTING.md         # Contribution guidelines
+├── package.json            # Dependencies and scripts
+├── vite.config.js         # Vite configuration
+├── vercel.json            # Vercel deployment configuration
+└── README.md              # This file
 ```
 
 ## 🏛️ Software Architecture
@@ -176,6 +206,38 @@ If you do not know the latitude and longitude just add the food resource entry t
 - [x] Advanced search filters (by service type)
 - [x] Save favorite locations
 
+### Phase 2.5: Backend Migration (In Progress) 🚧
+**Moving from Static JSON to PostgreSQL + Express API**
+
+This phase introduces a dynamic backend to enable CRUD operations, user contributions, and admin management.
+
+**Key Features:**
+- [ ] PostgreSQL database with 125+ food resources
+- [ ] RESTful API with Express.js on Vercel Serverless Functions
+- [ ] CRUD operations for food resources
+- [ ] Admin dashboard for content management
+- [ ] API endpoints for third-party integrations
+- [ ] Backward compatibility with static JSON fallback
+
+**Technology Stack:**
+- **Database**: PostgreSQL (Vercel Postgres / Supabase / Neon)
+- **Backend**: Express.js on Vercel Serverless Functions
+- **ORM**: node-postgres (pg)
+- **API**: RESTful endpoints at `/api/*`
+
+**API Endpoints** (Planned):
+- `GET /api/resources` - Fetch all resources with filtering
+- `GET /api/resources/:id` - Fetch single resource
+- `GET /api/counties` - Get list of counties
+- `GET /api/service-types` - Get service types
+- `POST /api/admin/resources` - Create new resource (admin)
+- `PUT /api/admin/resources/:id` - Update resource (admin)
+- `DELETE /api/admin/resources/:id` - Soft delete resource (admin)
+
+**Documentation**: See [BACKEND_MIGRATION.md](BACKEND_MIGRATION.md) for detailed migration plan, database schema, and implementation steps.
+
+**Timeline**: 4 weeks (Database setup → API development → Frontend integration → Testing)
+
 ### Phase 3: Community Features (Planned)
 - [ ] User reviews and ratings
 - [ ] Real-time availability updates
@@ -228,8 +290,7 @@ Questions or want to discuss a contribution?
 
 ### 🟡 Medium Priority
 - **UI/UX Improvements**: Making the interface even more user-friendly
-- **Map Integration**: Adding a map view of resources
-- **Accessibility**: Improving screen reader support and keyboard navigation
+- **Accessibility**: #A11Y Improving screen reader 🧑‍🦯🦮 support and keyboard navigation
 
 ### 🟢 Nice to Have
 - **Dark Mode**: Adding a dark theme option
@@ -238,21 +299,31 @@ Questions or want to discuss a contribution?
 
 ## 📱 Deployment
 
-### GitHub Pages
+This app is configured for deployment on **Vercel**, a modern hosting platform optimized for frontend frameworks.
 
-The app is automatically deployed to GitHub Pages on every push to the main branch.
+### Deploy to Vercel
 
-Manual deployment:
-```bash
-npm run deploy
-```
+Vercel offers zero-configuration deployment with automatic preview URLs for pull requests.
+
+**Quick Deploy:**
+1. Sign up at [vercel.com](https://vercel.com/signup) (free)
+2. Import the GitHub repository
+3. Deploy with one click!
+
+**Vercel will automatically:**
+- Detect the Vite framework
+- Run the build command
+- Deploy to a global CDN
+- Set up HTTPS
+- Create preview deployments for PRs
+
+For detailed step-by-step instructions, see [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md)
 
 ### Custom Domain (Optional)
 
-To use a custom domain:
-1. Add a `CNAME` file to the `public/` directory with your domain
-2. Configure DNS settings with your domain provider
-3. Enable HTTPS in GitHub repository settings
+1. Go to Project Settings → Domains in Vercel dashboard
+2. Add your domain and follow DNS configuration instructions
+3. HTTPS is automatically configured
 
 ## 🧪 Testing
 

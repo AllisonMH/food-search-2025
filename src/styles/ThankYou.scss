@@ -1,0 +1,230 @@
+@use './global.scss' as *;
+@use 'sass:color';
+
+.thank-you {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, $bg-light-purple, $bg-accent);
+
+  &__container {
+    max-width: 56rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: $primary-color;
+    margin-bottom: 1rem;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 3rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.25rem;
+    color: $text-secondary;
+  }
+
+  &__content {
+    background-color: $bg-primary;
+    border-radius: 0.5rem;
+    box-shadow: $shadow-lg;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+
+    @media (min-width: $breakpoint-md) {
+      padding: 2rem;
+    }
+  }
+
+  &__section {
+    margin-bottom: 2rem;
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $text-primary;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: $text-primary;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: $text-secondary;
+      line-height: 1.625;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__contributors-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__contributor-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: $bg-light-purple;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    box-shadow: $shadow-sm;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $shadow-md;
+      background-color: color.adjust($bg-light-purple, $lightness: -2%);
+    }
+  }
+
+  &__contributor-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: #0077B5; // LinkedIn blue
+    border-radius: 0.5rem;
+    color: white;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease;
+
+    .thank-you__contributor-card:hover & {
+      background-color: color.adjust(#0077B5, $lightness: -8%);
+    }
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+
+  &__contributor-info {
+    flex: 1;
+
+    h4 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: $text-primary;
+      margin: 0 0 0.25rem 0;
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: $text-secondary;
+      margin: 0;
+      line-height: 1.3;
+    }
+  }
+
+  &__contributor-categories {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__category {
+    background-color: $bg-light-purple;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: $shadow-sm;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $shadow-md;
+    }
+
+    h3 {
+      color: $brand-primary;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: $text-secondary;
+      margin: 0;
+      line-height: 1.5;
+    }
+  }
+
+  &__link {
+    color: $secondary-color;
+    font-weight: 500;
+    text-decoration: underline;
+
+    &:hover {
+      color: $secondary-hover;
+    }
+  }
+
+  &__cta {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  &__cta-button {
+    display: inline-block;
+    background-color: $primary-color;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    box-shadow: $shadow-md;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: $primary-hover;
+    }
+  }
+
+  &__footer {
+    background-color: $bg-accent;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    text-align: center;
+
+    p {
+      color: $text-secondary;
+      margin: 0;
+      font-size: 0.875rem;
+    }
+
+    a {
+      color: $secondary-color;
+      font-weight: 500;
+      text-decoration: none;
+
+      &:hover {
+        color: $secondary-hover;
+        text-decoration: underline;
+      }
+    }
+  }
+}
