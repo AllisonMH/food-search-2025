@@ -51,7 +51,7 @@ npm run dev
 
 ## 🏗️ Technology Stack
 
-### Core Technologies
+### Frontend Technologies
 - **React 19.1.1** - UI library for building interactive interfaces
 - **Vite 7.1.7** - Next-generation frontend build tool
 - **SCSS/Sass 1.93.2** - CSS preprocessor for maintainable stylesheets
@@ -59,6 +59,13 @@ npm run dev
 - **Leaflet 3.x + React Leaflet** - Interactive map visualization
 - **Browser Geolocation API** - Location-aware features
 - **localStorage** - Client-side data persistence for favorites
+
+### Backend Technologies (Phase 2.5) 🚧
+- **PostgreSQL** - Relational database for food resources
+- **Express.js** - Web framework for RESTful API
+- **node-postgres (pg)** - PostgreSQL client for Node.js
+- **Vercel Serverless Functions** - Backend hosting
+- **Vercel Postgres / Supabase** - Managed PostgreSQL database
 
 ### Why These Technologies?
 
@@ -76,24 +83,47 @@ npm run dev
 
 ```
 food-search-2025/
-├── src/
-│   ├── components/           # React components
-│   │   ├── Home.jsx         # Landing page with information
-│   │   └── FoodResources.jsx # Searchable resource directory
-│   ├── data/                # Data files
-│   │   └── foodResources.json # Food resource database
-│   ├── styles/              # SCSS stylesheets
-│   │   ├── global.scss      # Global styles and variables
-│   │   ├── Home.scss        # Home component styles
-│   │   └── FoodResources.scss # FoodResources component styles
-│   ├── App.jsx              # Main application component
-│   └── main.jsx             # Application entry point
-├── public/                  # Static assets
-├── .github/                 # GitHub configuration
-├── CONTRIBUTING.md          # Contribution guidelines
-├── package.json             # Dependencies and scripts
-├── vite.config.js          # Vite configuration
-└── README.md               # This file
+├── src/                     # Frontend source code
+│   ├── components/          # React components
+│   │   ├── Home.jsx        # Landing page with information
+│   │   ├── FoodResources.jsx # Searchable resource directory
+│   │   └── MapView.jsx     # Interactive map component
+│   ├── data/               # Static data files
+│   │   └── foodResources.json # Food resource database (125 resources)
+│   ├── hooks/              # Custom React hooks
+│   │   ├── useGeolocation.js # Browser geolocation hook
+│   │   └── useFavorites.js   # LocalStorage favorites hook
+│   ├── utils/              # Utility functions
+│   │   └── distanceCalculator.js # Haversine distance formula
+│   ├── styles/             # SCSS stylesheets
+│   │   ├── global.scss     # Global styles and variables
+│   │   ├── Home.scss       # Home component styles
+│   │   ├── FoodResources.scss # FoodResources component styles
+│   │   └── MapView.scss    # Map component styles
+│   ├── App.jsx             # Main application component
+│   └── main.jsx            # Application entry point
+├── api/                    # Backend API (Phase 2.5) 🚧
+│   ├── resources/
+│   │   ├── index.js        # GET /api/resources
+│   │   └── [id].js         # GET /api/resources/:id
+│   ├── counties.js         # GET /api/counties
+│   ├── service-types.js    # GET /api/service-types
+│   └── admin/              # Admin endpoints (future)
+├── lib/                    # Shared backend code 🚧
+│   └── db.js               # PostgreSQL connection pool
+├── migrations/             # Database migrations 🚧
+│   ├── 001_initial_schema.sql
+│   ├── 002_seed_counties.sql
+│   ├── 003_seed_service_types.sql
+│   └── 004_migrate_json_data.js
+├── public/                 # Static assets
+├── .github/                # GitHub configuration
+├── BACKEND_MIGRATION.md    # Backend migration documentation 🚧
+├── CONTRIBUTING.md         # Contribution guidelines
+├── package.json            # Dependencies and scripts
+├── vite.config.js         # Vite configuration
+├── vercel.json            # Vercel deployment configuration
+└── README.md              # This file
 ```
 
 ## 🏛️ Software Architecture
@@ -175,6 +205,38 @@ If you do not know the latitude and longitude just add the food resource entry t
 - [x] Distance-based sorting
 - [x] Advanced search filters (by service type)
 - [x] Save favorite locations
+
+### Phase 2.5: Backend Migration (In Progress) 🚧
+**Moving from Static JSON to PostgreSQL + Express API**
+
+This phase introduces a dynamic backend to enable CRUD operations, user contributions, and admin management.
+
+**Key Features:**
+- [ ] PostgreSQL database with 125+ food resources
+- [ ] RESTful API with Express.js on Vercel Serverless Functions
+- [ ] CRUD operations for food resources
+- [ ] Admin dashboard for content management
+- [ ] API endpoints for third-party integrations
+- [ ] Backward compatibility with static JSON fallback
+
+**Technology Stack:**
+- **Database**: PostgreSQL (Vercel Postgres / Supabase / Neon)
+- **Backend**: Express.js on Vercel Serverless Functions
+- **ORM**: node-postgres (pg)
+- **API**: RESTful endpoints at `/api/*`
+
+**API Endpoints** (Planned):
+- `GET /api/resources` - Fetch all resources with filtering
+- `GET /api/resources/:id` - Fetch single resource
+- `GET /api/counties` - Get list of counties
+- `GET /api/service-types` - Get service types
+- `POST /api/admin/resources` - Create new resource (admin)
+- `PUT /api/admin/resources/:id` - Update resource (admin)
+- `DELETE /api/admin/resources/:id` - Soft delete resource (admin)
+
+**Documentation**: See [BACKEND_MIGRATION.md](BACKEND_MIGRATION.md) for detailed migration plan, database schema, and implementation steps.
+
+**Timeline**: 4 weeks (Database setup → API development → Frontend integration → Testing)
 
 ### Phase 3: Community Features (Planned)
 - [ ] User reviews and ratings
