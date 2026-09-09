@@ -6,7 +6,11 @@ INSERT INTO counties (name) VALUES
   ('DeKalb'),
   ('Cobb'),
   ('Gwinnett'),
-  ('Clayton')
+  ('Clayton'),
+  ('Cherokee'),
+  ('Paulding'),
+  ('Henry'),
+  ('Douglas')
 ON CONFLICT (name) DO NOTHING;
 
 -- Verify insert

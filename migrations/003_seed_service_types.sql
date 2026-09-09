@@ -74,7 +74,36 @@ ON CONFLICT (name) DO NOTHING;
 -- Partnership Services
 INSERT INTO service_types (name, category) VALUES
   ('Partner Network', 'Partnership Services'),
-  ('Partner Agency Network', 'Partnership Services')
+  ('Partner Agency Network', 'Partnership Services'),
+  ('Regional Distribution Hub', 'Partnership Services')
+ON CONFLICT (name) DO NOTHING;
+
+-- Additional Food Services (variants found in source data)
+INSERT INTO service_types (name, category) VALUES
+  ('Food Distribution Events', 'Food Services'),
+  ('Food Giveaway (periodic)', 'Food Services'),
+  ('Food Pantry / Drive-Through Distribution', 'Food Services'),
+  ('Food Pantry / Food Giveaway (periodic)', 'Food Services'),
+  ('Grocery Distribution', 'Food Services'),
+  ('Little Food Pantries', 'Food Services'),
+  ('Mobile Pantry / Drive-Through Distribution', 'Food Services'),
+  ('Hunger Relief', 'Food Services')
+ON CONFLICT (name) DO NOTHING;
+
+-- Additional Support Services
+INSERT INTO service_types (name, category) VALUES
+  ('Utility/Rent Assistance (seasonal)', 'Support Services')
+ON CONFLICT (name) DO NOTHING;
+
+-- Additional Age-Specific Programs
+INSERT INTO service_types (name, category) VALUES
+  ('Youth & Family Programs', 'Age-Specific Programs')
+ON CONFLICT (name) DO NOTHING;
+
+-- Additional Community Services
+INSERT INTO service_types (name, category) VALUES
+  ('Church & Community Outreach', 'Community Services'),
+  ('Community Outreach', 'Community Services')
 ON CONFLICT (name) DO NOTHING;
 
 -- Verify insert
