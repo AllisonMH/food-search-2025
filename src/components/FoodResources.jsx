@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
-import foodResourcesData from "../data/foodResources.json";
+import staticFoodResources from "../data/foodResources.json";
+import { fetchResources } from "../lib/api";
 import {
   ALL_SERVICE_TYPES,
   getServicesByCategory,
@@ -15,6 +16,32 @@ import "../styles/FoodResources.scss";
 const RESOURCES_PER_PAGE = 10;
 
 export default function FoodResources() {
+  // Start with the bundled static data so the page renders immediately;
+  // swap in live API data if the fetch succeeds. If it fails (API down,
+  // database unreachable, etc.) we silently keep using the static data —
+  // see BACKEND_MIGRATION.md's rollback plan.
+  const [foodResourcesData, setFoodResourcesData] = useState(staticFoodResources);
+  const [usingLiveData, setUsingLiveData] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetchResources()
+      .then((resources) => {
+        if (!cancelled && Array.isArray(resources) && resources.length > 0) {
+          setFoodResourcesData(resources);
+          setUsingLiveData(true);
+        }
+      })
+      .catch((error) => {
+        console.warn("Failed to fetch resources from API, using bundled static data:", error.message);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCounty, setSelectedCounty] = useState("");
   const [selectedZip, setSelectedZip] = useState("");
@@ -51,7 +78,7 @@ export default function FoodResources() {
       ),
     ];
     return uniqueZips.sort();
-  }, []);
+  }, [foodResourcesData]);
 
   // Services: Use constants but filter to only show services actually present in data
   const services = useMemo(() => {
@@ -59,7 +86,7 @@ export default function FoodResources() {
       foodResourcesData.flatMap((resource) => resource.services)
     );
     return ALL_SERVICE_TYPES.filter((service) => servicesInData.has(service));
-  }, []);
+  }, [foodResourcesData]);
 
   // Group services by category for better UI organization
   const servicesByCategory = useMemo(() => {
@@ -91,7 +118,7 @@ export default function FoodResources() {
     });
     const filtered = Array.from(zips).sort();
     return filtered;
-  }, [selectedCounty, allZipCodes]);
+  }, [selectedCounty, allZipCodes, foodResourcesData]);
 
   const availableCounties = useMemo(() => {
     if (!selectedZip) {
@@ -110,7 +137,7 @@ export default function FoodResources() {
     );
 
     return filtered.length > 0 ? filtered : allCounties;
-  }, [selectedZip, allCounties]);
+  }, [selectedZip, allCounties, foodResourcesData]);
 
   // Filter and sort resources based on search, filters, and sort preference
   const filteredResources = useMemo(() => {
@@ -155,6 +182,7 @@ export default function FoodResources() {
 
     return filtered;
   }, [
+    foodResourcesData,
     searchTerm,
     selectedCounty,
     selectedZip,
@@ -279,6 +307,14 @@ export default function FoodResources() {
                     filteredResources.length
                   } resource${filteredResources.length !== 1 ? "s" : ""} found`}
             </p>
+            {usingLiveData && (
+              <p
+                style={{ fontSize: "0.75rem", opacity: 0.6, marginTop: "0.25rem" }}
+                title="Resource data was loaded from the live API instead of the bundled snapshot"
+              >
+                ● Live data
+              </p>
+            )}
           </div>
           <div className="food-resources__header-actions">
             <div className="food-resources__view-toggle">
