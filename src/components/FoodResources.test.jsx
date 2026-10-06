@@ -84,6 +84,8 @@ describe('FoodResources API integration', () => {
       expect(screen.getByText('Live API Test Pantry')).toBeInTheDocument();
     });
     expect(screen.getByText('● Live data')).toBeInTheDocument();
+    // The API casts coordinates to float8, so live resources are mappable
+    expect(screen.queryByText('📍 Map location unavailable')).not.toBeInTheDocument();
     // Static fallback data should no longer be shown once live data has loaded
     expect(screen.queryByText(staticFoodResources[0].name)).not.toBeInTheDocument();
   });
